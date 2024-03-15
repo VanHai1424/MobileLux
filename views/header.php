@@ -122,9 +122,9 @@
                         </a>
                     </div>
                     <div class="col-xxl-5 col-lg-5 d-none d-lg-block">
-                        <form action="#">
+                        <form action="index.php?act=categories" method="POST">
                             <div class="input-group">
-                                <input class="form-control rounded" type="search" placeholder="Search for products" />
+                                <input class="form-control rounded" type="search" name="keyw" placeholder="Search for products" />
                                 <span class="input-group-append">
                                     <button class="btn bg-white border border-start-0 ms-n10 rounded-0 rounded-end" type="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
@@ -218,13 +218,13 @@
                                 Categories
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="?act=categories">Apple</a></li>
-                                <li><a class="dropdown-item" href="?act=categories">Samsung</a></li>
-                                <li><a class="dropdown-item" href="?act=categories">Xiaomi</a></li>
-                                <li><a class="dropdown-item" href="?act=categories">Vivo</a></li>
-                                <li><a class="dropdown-item" href="?act=categories">Oppo</a></li>
-                                <li><a class="dropdown-item" href="?act=categories">Huawei</a></li>
-                                <li><a class="dropdown-item" href="?act=categories">Realme</a></li>
+                                <?php 
+                                    foreach ($listCategory as $key => $value) {
+                                ?>
+                                    <li><a class="dropdown-item" href="?act=categories&id=<?= $value['id'] ?>"><?= $value['name'] ?></a></li>
+                                <?php 
+                                    }
+                                ?>
                             </ul>
                         </div>
                         <div>

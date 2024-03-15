@@ -1,4 +1,3 @@
-
 <main>
     <section class="mt-8">
         <div class="container">
@@ -22,98 +21,24 @@
                 </div>
             </div>
             <div class="category-slider">
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/apple.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
+                <?php
+                foreach ($listCategory as $key => $value) {
+                ?>
+                    <div class="item">
+                        <a href="index.php?act=categories&id=<?= $value['id'] ?>" class="text-decoration-none text-inherit">
+                            <div class="card card-product mb-lg-4">
+                                <div class="card-body text-center py-8">
+                                    <div class="d-flex justify-content-center align-item-center m-auto " style="width: 150px; height: 100px;">
+                                        <img src="./upload/<?= $value['image'] ?>" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
+                                    </div>
+                                    <div class="text-truncate"><?= $value['name'] ?></div>
                                 </div>
-                                <div class="text-truncate">Apple</div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/samsung.png" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
-                                </div>
-                                <div class="text-truncate">Samsung</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/xiaomi.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
-                                </div>
-                                <div class="text-truncate">Xiaomi</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/vivo.png" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
-                                </div>
-                                <div class="text-truncate">Vivo</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/oppo.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
-                                </div>
-                                <div class="text-truncate">Oppo</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/huawei.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
-                                </div>
-                                <div class="text-truncate">Huawei</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="?act=categories" class="text-decoration-none text-inherit">
-                        <div class="card card-product mb-lg-4">
-                            <div class="card-body text-center py-8">
-                                <div class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100px;">
-                                    <img src="assets/images/category/realme.png" alt="Grocery Ecommerce Template" class="mb-3 img-fluid mw-100 mh-100" />
-
-                                </div>
-                                <div class="text-truncate">Realme</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -128,256 +53,41 @@
             </div>
 
             <div class="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3">
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-1.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 1</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
+                <?php
+                foreach ($listProductTop10 as $key => $value) {
+                ?>
+                    <div class="col">
+                        <div class="card card-product">
+                            <div class="card-body">
+                                <div class="text-center position-relative">
+                                    <a href="?act=product_detail&id=<?= $value['id'] ?>">
+                                        <div class="d-flex justify-content-center align-items-center mb-3" style="width: 200px; height: 200px;">
+                                            <img src="./upload/<?= $value['image'] ?>" alt="Grocery Ecommerce Template" class="img-fluid h-100" />
+                                        </div>
                                     </a>
+                                </div>
+                                <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none"><?= $value['name'] ?></a></h2>
+
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <span class="text-danger"><?= number_format($value['price'], 0, '.', '.') ?> <u>đ</u></span>
+                                    </div>
+                                    <div>
+                                        <a href="#!" class="btn btn-primary btn-sm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            </svg>
+                                            Add
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-2.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 2</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-3.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 3</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-4.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 4</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-5.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 5</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-6.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 6</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-7.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 7</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-8.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 8</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-9.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 9</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-10.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product 10</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
