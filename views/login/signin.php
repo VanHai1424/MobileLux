@@ -38,8 +38,8 @@
     <div class="border-bottom shadow-sm">
         <nav class="navbar navbar-light py-2">
             <div class="container justify-content-center justify-content-lg-between">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo/freshcart-logo.svg" alt="" class="d-inline-block align-text-top" />
+                <a class="navbar-brand" href="./">
+                    <img src="./assets/images/logo/logo.png" alt="" class="d-inline-block align-text-top" />
                 </a>
                 <span class="navbar-text">
                     Already have an account?

@@ -1,8 +1,8 @@
 <nav class="navbar-vertical-nav d-none d-xl-block">
     <div class="navbar-vertical">
         <div class="px-4 py-5">
-            <a href="../index.html" class="navbar-brand">
-                <img src="../assets/images/logo/freshcart-logo.svg" alt="" />
+            <a href="./" class="navbar-brand">
+                <img src="../assets/images/logo/logo.png" alt="" />
             </a>
         </div>
         <div class="navbar-vertical-content flex-grow-1" data-simplebar="">

@@ -118,7 +118,7 @@
                 <div class="row w-100 align-items-center gx-lg-2 gx-0">
                     <div class="col-xxl-2 col-lg-3 col-md-6 col-5">
                         <a class="navbar-brand d-none d-lg-block" href="./">
-                            <img src="" alt="Logo" />
+                            <img src="./assets/images/logo/logo.png" alt="Logo" />
                         </a>
                     </div>
                     <div class="col-xxl-5 col-lg-5 d-none d-lg-block">

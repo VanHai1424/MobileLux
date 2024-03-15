@@ -43,7 +43,7 @@
                     <div class="offset-lg-1 col-lg-10 py-8 py-xl-0" style="margin-left: 300px;">
                         <div class="mb-10 mb-xxl-0">
                             <!-- img -->
-                            <a href="pages/index.html"><img src="assets/images/logo/freshcart-logo.svg" alt="" /></a>
+                            <a href="pages/index.html"><img src="./assets/images/logo/logo.png" alt="" /></a>
                         </div>
                         <div class="row justify-content-center align-items-center">
                             <!-- content -->
@@ -54,7 +54,7 @@
                                         Thank you for your purchase.
                                     </p>
                                     <!-- btn -->
-                                    <a href="pages/index.html" class="btn btn-primary ms-2">Back to home</a>
+                                    <a href="./" class="btn btn-primary ms-2">Back to home</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
