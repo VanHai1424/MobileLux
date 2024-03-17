@@ -23,3 +23,17 @@
         $listProduct = pdo_query($sql);
         return  $listProduct;
     }
+
+    function loadone_product($id){
+        $sql="SELECT p.*, c.name AS category_name FROM product p 
+        JOIN category c ON p.id_category = c.id 
+        WHERE p.id=$id";
+        $product = pdo_query_one($sql);
+        return $product;
+    }
+
+    function loadall_product_related($id, $idCategory) {
+        $sql = "SELECT * FROM `product` WHERE id_category = $idCategory AND id <> $id";
+        $productRelated = pdo_query($sql);
+        return $productRelated;
+    }

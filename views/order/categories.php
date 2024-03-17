@@ -101,7 +101,7 @@ foreach ($listProduct as $item) {
                                                 <div>
                                                     <span class="text-danger"><?= number_format($price, 0, '.', '.') ?> <u>đ</u></span>
                                                 </div>
-                                                <div>
+                                                <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>);">
                                                     <a href="#!" class="btn btn-primary btn-sm">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                             <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -152,3 +152,31 @@ foreach ($listProduct as $item) {
         </div>
     </section>
 </main>
+
+<script>
+    // Add To Cart
+    var totalProduct = document.querySelector('#totalProduct');
+
+    function addToCart(id, name, img, price) {
+        $.ajax({
+            type: 'POST',
+            url: './views/order/add_to_cart.php',
+            data: {
+                id: id,
+                name: name,
+                img: img,
+                price: price,
+                quantity: 1,
+            },
+
+            success: function(response) {
+                totalProduct.innerText = response;
+                alert('Thêm thành công!');
+            },
+
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

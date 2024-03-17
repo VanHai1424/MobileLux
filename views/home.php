@@ -48,13 +48,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-6">
-                    <h3 class="mb-0">Popular Products</h3>
+                    <h3 class="mb-0">New Products</h3>
                 </div>
             </div>
 
             <div class="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3">
                 <?php
                 foreach ($listProductTop10 as $key => $value) {
+                    extract($value);
                 ?>
                     <div class="col">
                         <div class="card card-product">
@@ -72,7 +73,7 @@
                                     <div>
                                         <span class="text-danger"><?= number_format($value['price'], 0, '.', '.') ?> <u>đ</u></span>
                                     </div>
-                                    <div>
+                                    <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>);">
                                         <a href="#!" class="btn btn-primary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -131,3 +132,30 @@
         </div>
     </section>
 </main>
+<script>
+    // Add To Cart
+    var totalProduct = document.querySelector('#totalProduct');
+
+    function addToCart(id, name, img, price) {
+        $.ajax({
+            type: 'POST',
+            url: './views/order/add_to_cart.php',
+            data: {
+                id: id,
+                name: name,
+                img: img,
+                price: price,
+                quantity: 1,
+            },
+
+            success: function(response) {
+                totalProduct.innerText = response;
+                alert('Thêm thành công!');
+            },
+
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
