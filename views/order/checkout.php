@@ -54,7 +54,7 @@
                                     </a>
                                     <!-- collapse -->
                                 </div>
-                                <form id="flush-collapseOne" class="modal-dialog collapse show">
+                                <form id="flush-collapseOne" class="modal-dialog collapse show" action="?act=order" method="POST">
                                     <div class="modal-content">
                                         <!-- modal body -->
                                         <div class="modal-body">
@@ -62,27 +62,27 @@
                                             <div class="row g-3">
                                                 <!-- col -->
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" placeholder="Name" aria-label="First name" required="" />
+                                                    <input type="text" class="form-control" name="name" placeholder="Name" aria-label="First name" required />
                                                 </div>
                                                 <!-- col -->
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" placeholder="Email" />
+                                                    <input type="text" class="form-control" name="email" placeholder="Email" required />
                                                 </div>
                                                 <!-- col -->
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" placeholder="Phone number" />
+                                                    <input type="text" class="form-control" name="tel" placeholder="Phone number" required />
                                                 </div>
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" placeholder="Address" />
+                                                    <input type="text" class="form-control" name="address" placeholder="Address" required />
                                                 </div>
                                                 <div class="col-12">
                                                     <!-- button -->
-                                                    <select class="form-select">
-                                                        <option value="">Payment Method</option>
+                                                    <select class="form-select" name="pay_method">
                                                         <option value="1">Payment on delivery</option>
                                                         <option value="2">Bank card</option>
                                                     </select>
                                                 </div>
+                                                <input type="submit" id="submit" value="submit" hidden>
                                             </div>
                                         </div>
                                     </div>
@@ -93,109 +93,64 @@
 
                     </div>
 
-                    <div class="col-12 col-md-12 offset-lg-1 col-lg-4">
+                    <div class="col-12 col-md-12 col-lg-5">
                         <div class="mt-4 mt-lg-0">
                             <div class="card shadow-sm">
                                 <h5 class="px-6 py-4 bg-transparent mb-0">Order Details</h5>
                                 <ul class="list-group list-group-flush">
                                     <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-1.jpg" alt="Ecommerce" class="img-fluid" />
+                                    <?php
+                                    $total = 0;
+                                    foreach ($_SESSION['cart'] as $value) {
+                                        extract($value);
+                                        $total += $price * $quantity;
+                                    ?>
+                                        <li class="list-group-item px-4 py-3">
+                                            <div class="row align-items-center">
+                                                <div class="col-2 col-md-2">
+                                                    <img src="./upload/<?= $img ?>" alt="" class="img-fluid" />
+                                                </div>
+                                                <div class="col-5 col-md-5">
+                                                    <h6 class="mb-0"><?= $name ?></h6>
+                                                </div>
+                                                <div class="col-2 col-md-1 text-center text-muted p-0 ">
+                                                    <span><?= $quantity ?></span>
+                                                </div>
+                                                <div class="col-3 text-lg-end text-start text-md-end col-md-4">
+                                                    <span class="fw-bold"><?= number_format($price * $quantity, 0, '.', '.') ?></span>
+                                                </div>
                                             </div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Product 1</h6>
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$5.00</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-2.jpg" alt="Ecommerce" class="img-fluid" />
-                                            </div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Product 2</h6>
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$20.00</span>
-                                                <div class="text-decoration-line-through text-muted small">$26.00</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-3.jpg" alt="Ecommerce" class="img-fluid" />
-                                            </div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Product 3</h6>
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$15.00</span>
-                                                <div class="text-decoration-line-through text-muted small">$20.00</div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-4.jpg" alt="Ecommerce" class="img-fluid" />
-                                            </div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Product 4</h6>
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$15.00</span>
-                                                <div class="text-decoration-line-through text-muted small">$20.00</div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    <?php
+                                    }
+                                    ?>
 
                                     <!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
                                         <div class="d-flex align-items-center justify-content-between mb-2">
                                             <div>Item Subtotal</div>
-                                            <div class="fw-bold">$70.00</div>
+                                            <div class="fw-bold"><?= number_format($total, 0, '.', '.') ?></div>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <div>
                                                 Service Fee
                                                 <i class="feather-icon icon-info text-muted" data-bs-toggle="tooltip" title="Default tooltip"></i>
                                             </div>
-                                            <div class="fw-bold">$3.00</div>
+                                            <div class="fw-bold">0</div>
                                         </div>
                                     </li>
                                     <!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
                                         <div class="d-flex align-items-center justify-content-between fw-bold">
                                             <div>Subtotal</div>
-                                            <div class="text-danger">$67.00</div>
+                                            <div class="text-danger"><?= number_format($total, 0, '.', '.') ?> <u>đ</u></div>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                             <!-- Button -->
-                            <div class="mt-5 d-flex justify-content-end">
-                                <a href="#!" class="btn btn-primary ms-2">Place Order</a>
+                            <div class="col-lg-12 d-flex justify-content-end mt-5">
+                                <button <?= (!isset($_SESSION['user']) || ($_SESSION['cart'] == []) ? "disabled" : "") ?> type="submit" name="submit" onclick="placeOrder()" class="btn btn-primary ms-2">Place Order</button>
                             </div>
                         </div>
                     </div>
@@ -204,3 +159,9 @@
         </div>
     </section>
 </main>
+<script>
+    function placeOrder() {
+        const btnSubmit = document.getElementById('submit');
+        btnSubmit.click();
+    }
+</script>

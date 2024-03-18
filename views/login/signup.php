@@ -68,51 +68,45 @@
                             <p>Welcome to MobileLux! Enter your email to get started.</p>
                         </div>
                         <!-- form -->
-                        <form class="needs-validation" novalidate>
-                            <div class="row g-3">
-                                <!-- col -->
-                                <div class="col">
-                                    <!-- input -->
-                                    <label for="formSignupfname" class="form-label visually-hidden">First Name</label>
-                                    <input type="text" class="form-control" id="formSignupfname" placeholder="First Name" required />
-                                    <div class="invalid-feedback">Please enter first name.</div>
-                                </div>
-                                <div class="col">
-                                    <!-- input -->
-                                    <label for="formSignuplname" class="form-label visually-hidden">Last Name</label>
-                                    <input type="text" class="form-control" id="formSignuplname" placeholder="First Name" required />
-                                    <div class="invalid-feedback">Please enter last name.</div>
-                                </div>
-                                <div class="col-12">
-                                    <!-- input -->
-                                    <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
-                                    <input type="email" class="form-control" id="formSignupEmail" placeholder="Email" required />
-                                    <div class="invalid-feedback">Please enter email.</div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="password-field position-relative">
-                                        <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
-                                        <div class="password-field position-relative">
-                                            <input type="password" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
-                                            <span><i class="bi bi-eye-slash passwordToggler"></i></span>
-                                            <div class="invalid-feedback">Please enter password.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- btn -->
-                                <div class="col-12 d-grid"><button type="submit" class="btn btn-primary">Register</button></div>
+                        <form action="index.php?act=signup" method="POST" class="needs-validation" >
+                        <div class="row g-3">
+                           <!-- col -->
+                           <div class="col">
+                              <!-- input -->
+                              <label for="formSignupfname" class="form-label visually-hidden">Name</label>
+                              <input name="user" type="text" class="form-control" id="formSignupfname" placeholder="Username" required />
+                              <div class="invalid-feedback">Please enter name.</div>
+                           </div>
+                           <div class="col-12">
+                              <!-- input -->
+                              <label for="formSignupEmail" class="form-label visually-hidden">Email address</label>
+                              <input name="email" type="email" class="form-control" id="formSignupEmail" placeholder="Email" required />
+                              <div class="invalid-feedback">Please enter email.</div>
+                           </div>
+                           <div class="col-12">
+                              <div class="password-field position-relative">
+                                 <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
+                                 <div class="password-field position-relative">
+                                    <input name="pass" type="password" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
+                                    <span><i class="bi bi-eye-slash passwordToggler"></i></span>
+                                    <div class="invalid-feedback">Please enter password.</div>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- btn -->
+                           <div class="col-12 d-grid"><button name="submit" type="submit" class="btn btn-primary">Register</button></div>
 
-                                <!-- text -->
-                                <p>
-                                    <small>
-                                        By continuing, you agree to our
-                                        <a href="#!">Terms of Service</a>
-                                        &
-                                        <a href="#!">Privacy Policy</a>
-                                    </small>
-                                </p>
-                            </div>
-                        </form>
+                           <!-- text -->
+                           <p>
+                              <small>
+                                 By continuing, you agree to our
+                                 <a href="#!">Terms of Service</a>
+                                 &
+                                 <a href="#!">Privacy Policy</a>
+                              </small>
+                           </p>
+                        </div>
+                     </form>
                     </div>
                 </div>
             </div>

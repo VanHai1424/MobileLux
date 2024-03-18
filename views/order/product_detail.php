@@ -1,3 +1,9 @@
+<?php
+if (is_array($product)) {
+    extract($product);
+    $newDesc = explode('\n', $desc);
+}
+?>
 <main>
     <div class="mt-4">
         <div class="container">
@@ -9,9 +15,9 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Apple</a></li>
+                            <li class="breadcrumb-item"><a href="#"><?= $category_name ?></a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Product 1</li>
+                            <li class="breadcrumb-item active" aria-current="page"><?= $name ?></li>
                         </ol>
                     </nav>
                 </div>
@@ -27,7 +33,7 @@
                         <div>
                             <!-- img -->
                             <div class="d-flex align-items-center justify-content-center" style="width: 628px; height: 471px">
-                                <img src="assets/images/products/product-img-1.jpg" alt="" class="mw-100 mh-100 " />
+                                <img src="./upload/<?= $image ?>" alt="" class="mw-100 mh-100 " />
                             </div>
 
                         </div>
@@ -36,21 +42,21 @@
                 <div class="col-md-6">
                     <div class="ps-lg-10 mt-6 mt-md-0">
                         <!-- content -->
-                        <a href="#!" class="mb-4 d-block">Apple</a>
+                        <a href="#!" class="mb-4 d-block"><?= $category_name ?></a>
                         <!-- heading -->
-                        <h1 class="mb-1">Product 1</h1>
+                        <h1 class="mb-1"><?= $name ?></h1>
                         <hr class="my-6" />
                         <div>
                             <!-- table -->
                             <table class="table table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td>Product Code:</td>
-                                        <td>1</td>
+                                        <td>Memory:</td>
+                                        <td><?= $memory ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Quantity:</td>
-                                        <td>30</td>
+                                        <td>Color:</td>
+                                        <td><?= $color ?></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -62,24 +68,24 @@
                             <!-- input -->
                             <div class="input-group input-spinner">
                                 <input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity" />
-                                <input type="number" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input" />
+                                <input type="number" min="1" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input" />
                                 <input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity" />
                             </div>
                         </div>
+                        <div class="fs-4" style="margin-top: 12px;">
+                            <!-- price -->
+                            <span class="fw-bold text-danger"><?= number_format($price, 0, '.', '.') ?> <u>đ</u></span>
 
+                        </div>
                         <div class="mt-3 row justify-content-start g-2 align-items-center">
                             <div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
                                 <!-- button -->
                                 <!-- btn -->
-                                <button type="button" class="btn btn-primary">
+                                <button data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, document.querySelector('input[name=\'quantity\']').value);" type="button" class="btn btn-primary">
                                     <i class="feather-icon icon-shopping-bag me-2"></i>
                                     Add to cart
                                 </button>
                             </div>
-                            <!-- <div class="col-md-4 col-4">
-                              <a class="btn btn-light" href="#" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Compare"><i class="bi bi-arrow-left-right"></i></a>
-                              <a class="btn btn-light" href="shop-wishlist.html" data-bs-toggle="tooltip" data-bs-html="true" aria-label="Wishlist"><i class="feather-icon icon-heart"></i></a>
-                           </div> -->
                         </div>
                         <div class="mt-8">
                             <!-- dropdown -->
@@ -142,7 +148,11 @@
                             <div class="my-8">
                                 <div class="mb-5">
                                     <!-- text -->
-                                    <p class="mb-0">Product details</p>
+                                    <?php 
+                                        foreach ($newDesc as $key => $value) {
+                                            echo '<p class="mb-0">'.$value.'</p>';
+                                        }
+                                    ?>
                                 </div>
 
                             </div>
@@ -240,14 +250,13 @@
                                             <div class="d-grid">
                                                 <h4>Review this product</h4>
                                                 <p class="mb-0">Share your thoughts with other customers.</p>
-                                                <a href="#!" class="btn btn-outline-gray-400 mt-4 text-muted">Write the
-                                                    Review</a>
+                                                <a href="#create-review" class="btn btn-outline-gray-400 mt-4 text-muted">Write the Review</a>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- col -->
                                     <div class="col-md-8">
-                                        <div class="mb-10">
+                                    <div class="mb-10">
                                             <div class="d-flex justify-content-between align-items-center mb-8">
                                                 <div>
                                                     <!-- heading -->
@@ -255,44 +264,27 @@
                                                 </div>
                                                 <div>
                                                     <select class="form-select">
-                                                        <option selected="">Top Reviews</option>
+                                                        <option selected>Top Reviews</option>
                                                         <option value="Most Recent">Most Recent</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="d-flex border-bottom pb-6 mb-6">
-                                                <div class="ms-5">
-                                                    <h6 class="mb-1">User 1</h6>
-                                                    <!-- select option -->
-                                                    <!-- content -->
-                                                    <p class="small">
-                                                        <span class="text-muted">07/12/2023</span>
-                                                    </p>
-
-                                                    <p>Nice</p>
-                                                    <!-- icon -->
-                                                    <div class="d-flex justify-content-end mt-4">
-                                                        <a href="#" class="text-muted">
-                                                            <i class="feather-icon icon-thumbs-up me-1"></i>
-                                                            Helpful
-                                                        </a>
-                                                        <a href="#" class="text-muted ms-4">
-                                                            <i class="feather-icon icon-flag me-2"></i>
-                                                            Report abuse
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php 
+                                                foreach ($productReviews as $value) {
+                                                    extract($value);
+                                                
+                                            ?>
                                             <div class="d-flex border-bottom pb-6 mb-6">
                                                 <!-- <img src="./assets/images/avatar/avatar-10.jpg" alt="" class="rounded-circle avatar-lg" /> -->
                                                 <div class="ms-5">
-                                                    <h6 class="mb-1">User 2</h6>
+                                                    <h6 class="mb-1"><?= $user_name ?></h6>
                                                     <!-- select option -->
                                                     <!-- content -->
                                                     <p class="small">
-                                                        <span class="text-muted">07/12/2023</span>
+                                                        <span class="text-muted"><?= date('d/m/Y', strtotime($date)) ?></span>
                                                     </p>
-                                                    <p>Nice</p>
+                                                    <!-- text-->
+                                                    <p><?= $content ?></p>
                                                     <!-- icon -->
                                                     <div class="d-flex justify-content-end mt-4">
                                                         <a href="#" class="text-muted">
@@ -306,52 +298,42 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="d-flex border-bottom pb-6 mb-6">
-                                                <!-- <img src="./assets/images/avatar/avatar-10.jpg" alt="" class="rounded-circle avatar-lg" /> -->
-                                                <div class="ms-5">
-                                                    <h6 class="mb-1">User 3</h6>
-                                                    <!-- select option -->
-                                                    <!-- content -->
-                                                    <p class="small">
-                                                        <span class="text-muted">07/12/2023</span>
-                                                    </p>
-
-                                                    <p>Nice</p>
-                                                    <!-- icon -->
-                                                    <div class="d-flex justify-content-end mt-4">
-                                                        <a href="#" class="text-muted">
-                                                            <i class="feather-icon icon-thumbs-up me-1"></i>
-                                                            Helpful
-                                                        </a>
-                                                        <a href="#" class="text-muted ms-4">
-                                                            <i class="feather-icon icon-flag me-2"></i>
-                                                            Report abuse
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <?php 
+                                                }
+                                            ?>
                                             <div style="text-align: right;">
                                                 <a href="#" class="btn btn-outline-gray-400 text-muted">Read More Reviews</a>
                                             </div>
                                         </div>
-                                        <form action="" method="POST" id="create-review">
+                                        <?php 
+                                            if(isset($_SESSION['user'])) {
+
+                                        ?>
+                                        <form action="index.php?act=review" method="POST" id="create-review">
                                             <!-- rating -->
                                             <h3 class="mb-5">Create Review</h3>
                                             <div class="py-4 mb-4">
                                                 <!-- heading -->
                                                 <h5>Add a written review</h5>
-                                                <textarea name="content" class="form-control" rows="3" placeholder="What did you like or dislike?"></textarea>
+                                                <textarea name="content" class="form-control" rows="3" placeholder="What did you like or dislike ?"></textarea>
                                             </div>
                                             <!-- button -->
-                                            <input type="hidden" name="id" value="25">
+                                            <input type="hidden" name="id" value="<?= $product['id'] ?>">
                                             <div class="d-flex justify-content-end">
                                                 <button name="submit" type="submit" class="btn btn-primary">Submit Review</button>
                                             </div>
                                         </form>
+                                        <?php 
+                                            } else {
+                                                echo '<h2 class="mb-5>';
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- tab pane -->
+                        <div class="tab-pane fade" id="sellerInfo-tab-pane" role="tabpanel" aria-labelledby="sellerInfo-tab" tabindex="0">Đăng nhập để bình luận</div>
                     </div>
                 </div>
             </div>
@@ -370,137 +352,71 @@
             </div>
             <!-- row -->
             <div class="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-2 mt-2">
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-1.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product
-                                    1</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
+                <?php
+                foreach ($productRelated as $key => $value) {
+                    extract($value);
+                ?>
+                    <div class="col">
+                        <div class="card card-product">
+                            <div class="card-body">
+                                <div class="text-center position-relative">
+                                    <a href="?act=product_detail&id=<?= $value['id'] ?>">
+                                        <div class="d-flex justify-content-center align-items-center mb-3" style="width: 200px; height: 200px;">
+                                            <img src="./upload/<?= $value['image'] ?>" alt="Grocery Ecommerce Template" class="img-fluid h-100" />
+                                        </div>
                                     </a>
+                                </div>
+                                <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none"><?= $value['name'] ?></a></h2>
+
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <span class="text-danger"><?= number_format($value['price'], 0, '.', '.') ?> <u>đ</u></span>
+                                    </div>
+                                    <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, 1);">
+                                        <a href="#!" class="btn btn-primary btn-sm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            </svg>
+                                            Add
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-2.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product
-                                    2</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-3.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product
-                                    3</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-4.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product
-                                    4</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-product">
-                        <div class="card-body">
-                            <div class="text-center position-relative">
-                                <a href="?act=product_detail"><img src="assets/images/products/product-img-5.jpg" alt="Grocery Ecommerce Template" class="mb-3 img-fluid" /></a>
-                            </div>
-                            <h2 class="fs-6"><a href="shop-single.html" class="text-inherit text-decoration-none">Product
-                                    5</a></h2>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div>
-                                    <span class="text-danger">$182</span>
-                                </div>
-                                <div>
-                                    <a href="#!" class="btn btn-primary btn-sm">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        </svg>
-                                        Add
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </section>
 </main>
+
+<script>
+    // Add To Cart
+    var totalProduct = document.querySelector('#totalProduct');
+
+    function addToCart(id, name, img, price, quantity) {
+        $.ajax({
+            type: 'POST',
+            url: './views/order/add_to_cart.php',
+            data: {
+                id: id,
+                name: name,
+                img: img,
+                price: price,
+                quantity: quantity,
+            },
+
+            success: function(response) {
+                totalProduct.innerText = response;
+                alert('Thêm thành công!');
+            },
+
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

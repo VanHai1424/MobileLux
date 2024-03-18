@@ -10,15 +10,15 @@
     <meta content="Codescandy" name="author" />
     <title>Mobile Lux</title>
     <!-- Favicon icon-->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon/favicon.ico" />
 
     <!-- Libs CSS -->
-    <link href="assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
-    <link href="assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
+    <link href="../../assets/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="../../assets/libs/feather-webfont/dist/feather-icons.css" rel="stylesheet" />
+    <link href="../../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet" />
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="assets/css/theme.min.css" />
+    <link rel="stylesheet" href="../../assets/css/theme.min.css" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8S4MT3EYG"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -43,7 +43,7 @@
                     <div class="offset-lg-1 col-lg-10 py-8 py-xl-0" style="margin-left: 300px;">
                         <div class="mb-10 mb-xxl-0">
                             <!-- img -->
-                            <a href="pages/index.html"><img src="./assets/images/logo/logo.png" alt="" /></a>
+                            <a href="../../"><img src="../../assets/images/logo/logo.png" alt="" /></a>
                         </div>
                         <div class="row justify-content-center align-items-center">
                             <!-- content -->
@@ -54,14 +54,12 @@
                                         Thank you for your purchase.
                                     </p>
                                     <!-- btn -->
-                                    <a href="./" class="btn btn-primary ms-2">Back to home</a>
+                                    <a href="../../" class="btn btn-primary ms-2">Back to home</a>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div>
                                     <i class="bi bi-check-circle-fill" style="font-size: 200px; color: #0aad0a;"></i>
-                                    <!-- img -->
-                                    <!-- <img src="assets/images/svg-graphics/error.svg" alt="" class="img-fluid" /> -->
                                 </div>
                             </div>
                         </div>
@@ -74,12 +72,12 @@
 
     <!-- Javascript-->
     <!-- Libs JS -->
-    <!-- <script src="assets/libs/jquery/dist/jquery.min.js"></script> -->
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/simplebar/dist/simplebar.min.js"></script>
+    <!-- <script src="../../assets/libs/jquery/dist/jquery.min.js"></script> -->
+    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/libs/simplebar/dist/simplebar.min.js"></script>
 
     <!-- Theme JS -->
-    <script src="assets/js/theme.min.js"></script>
+    <script src="../../assets/js/theme.min.js"></script>
 </body>
 
 <!-- Mirrored from freshcart.codescandy.com/pages/404error.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 29 Nov 2023 14:19:27 GMT -->

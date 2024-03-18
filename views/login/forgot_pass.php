@@ -68,24 +68,24 @@
                                 <p>Please enter the email address associated with your account and We will email you a link to reset your password.</p>
                             </div>
                             <!-- form -->
-                            <form class="needs-validation" novalidate>
-                                <!-- row -->
-                                <div class="row g-3">
-                                    <!-- col -->
-                                    <div class="col-12">
-                                        <!-- input -->
-                                        <label for="formForgetEmail" class="form-label visually-hidden">Email address</label>
-                                        <input type="email" class="form-control" id="formForgetEmail" placeholder="Email" required />
-                                        <div class="invalid-feedback">Please enter correct password.</div>
-                                    </div>
-
-                                    <!-- btn -->
-                                    <div class="col-12 d-grid gap-2">
-                                        <button type="submit" class="btn btn-primary">Reset Password</button>
-                                        <a href="?act=signup" class="btn btn-light">Back</a>
-                                    </div>
-                                </div>
-                            </form>
+                            <form action="index.php?act=forgot_pass" method="POST" class="needs-validation">
+                           <!-- row -->
+                           <div class="row g-3">
+                              <!-- col -->
+                              <div class="col-12">
+                                 <!-- input -->
+                                 <label for="formForgetEmail" class="form-label visually-hidden">Email address</label>
+                                 <input name="email" type="email" class="form-control" id="formForgetEmail" placeholder="Email" required />
+                                 <div class="invalid-feedback">Please enter correct email.</div>
+                              </div>
+                              <?= (isset($sendMailMess) && ($sendMailMess != "")) ? $sendMailMess : "" ?>
+                              <!-- btn -->
+                              <div class="col-12 d-grid gap-2">
+                                 <button name="submit" type="submit" class="btn btn-primary">Reset Password</button>
+                                 <a href="index.php?act=signup" class="btn btn-light">Back</a>
+                              </div>
+                           </div>
+                        </form>
                         </div>
                     </div>
                 </div>
