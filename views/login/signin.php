@@ -66,14 +66,14 @@
                             <p>Welcome back to MobileLux! Enter your email to get started.</p>
                         </div>
 
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" action="?act=signin" method="POST">
                             <div class="row g-3">
                                 <!-- row -->
 
                                 <div class="col-12">
                                     <!-- input -->
                                     <label for="formSigninEmail" class="form-label visually-hidden">Email address</label>
-                                    <input type="email" class="form-control" id="formSigninEmail" placeholder="Email" required />
+                                    <input type="text" class="form-control" id="formSigninEmail" name="user" placeholder="Username" required />
                                     <div class="invalid-feedback">Please enter name.</div>
                                 </div>
                                 <div class="col-12">
@@ -81,7 +81,7 @@
                                     <div class="password-field position-relative">
                                         <label for="formSigninPassword" class="form-label visually-hidden">Password</label>
                                         <div class="password-field position-relative">
-                                            <input type="password" class="form-control fakePassword" id="formSigninPassword" placeholder="*****" required />
+                                            <input type="password" class="form-control fakePassword" id="formSigninPassword" name="pass" placeholder="*****" required />
                                             <span><i class="bi bi-eye-slash passwordToggler"></i></span>
                                             <div class="invalid-feedback">Please enter password.</div>
                                         </div>
@@ -99,8 +99,11 @@
                                         <a href="?act=forgot_pass">Reset It</a>
                                     </div>
                                 </div>
+                                <?= (isset($loginMess) && ($loginMess != "")) ? $loginMess : "" ?>
                                 <!-- btn -->
-                                <div class="col-12 d-grid"><button type="submit" class="btn btn-primary">Sign In</button></div>
+                                <div class="col-12 d-grid">
+                                    <button name="submit" type="submit" class="btn btn-primary">Sign In</button>
+                                </div>
                                 <!-- link -->
                                 <div>
                                     Don’t have an account?

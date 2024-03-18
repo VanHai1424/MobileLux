@@ -256,7 +256,7 @@ if (is_array($product)) {
                                     </div>
                                     <!-- col -->
                                     <div class="col-md-8">
-                                        <div class="mb-10">
+                                    <div class="mb-10">
                                             <div class="d-flex justify-content-between align-items-center mb-8">
                                                 <div>
                                                     <!-- heading -->
@@ -315,7 +315,7 @@ if (is_array($product)) {
                                             <div class="py-4 mb-4">
                                                 <!-- heading -->
                                                 <h5>Add a written review</h5>
-                                                <textarea name="content" class="form-control" rows="3" placeholder="What did you like or dislike? What did you use this product for?"></textarea>
+                                                <textarea name="content" class="form-control" rows="3" placeholder="What did you like or dislike ?"></textarea>
                                             </div>
                                             <!-- button -->
                                             <input type="hidden" name="id" value="<?= $product['id'] ?>">

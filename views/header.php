@@ -151,16 +151,65 @@
                                         <?= (isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0) ?>
                                         <span class="visually-hidden">unread messages</span>
                                     </span>
+                                </a>
                             </div>
-                            </a>
                             <div class="list-inline-item me-5 me-lg-0">
-                                <a href="?act=signin" class="text-muted" data-bs-target="#userModal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                <?php 
+                                    if(isset($_SESSION['user'])) {
+
+                                ?> 
+                                <a class="position-relative btn-icon btn-ghost-secondary btn rounded-circle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="feather feather-user">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="12" cy="7" r="4"></circle>
                                     </svg>
                                 </a>
 
+                                <div class="dropdown-menu dropdown-menu-end p-0">
+                                    <div class="lh-1 px-5 py-4 border-bottom">
+                                        <h5 class="mb-1 h6"><?= $_SESSION['user']['user'] ?></h5>
+                                        <small><?= $_SESSION['user']['email'] ?></small>
+                                    </div>
+
+                                    <ul class="list-unstyled px-2 py-3">
+                                        <li>
+                                            <a class="dropdown-item" href="#!">Home</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="#!">Profile</a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-item" href="#!">Settings</a>
+                                        </li>
+                                    </ul>
+                                    <div class="border-top px-5 py-3">
+                                        <a href="index.php?act=logout">Log Out</a>
+                                    </div>
+                                </div>
+                                <?php 
+                                    } else {
+                                ?>
+                                <a href="index.php?act=signin
+                                " class="text-muted" data-bs-target="#userModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </a>
+                                <?php 
+                                    }
+                                ?>
                             </div>
                             <div class="list-inline-item d-inline-block d-lg-none">
                                 <!-- Button -->
@@ -218,12 +267,12 @@
                                 Categories
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <?php 
-                                    foreach ($listCategory as $key => $value) {
+                                <?php
+                                foreach ($listCategory as $key => $value) {
                                 ?>
                                     <li><a class="dropdown-item" href="?act=categories&id=<?= $value['id'] ?>"><?= $value['name'] ?></a></li>
-                                <?php 
-                                    }
+                                <?php
+                                }
                                 ?>
                             </ul>
                         </div>

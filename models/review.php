@@ -9,3 +9,8 @@
         $listReview = pdo_query($sql);
         return $listReview;
     }
+
+    function insert_review($idUser, $idProduct, $content, $date){
+        $sql = "INSERT INTO `review`(`id_user`, `id_product`, `content`, `date`) VALUES ($idUser, $idProduct, '$content', '$date')";
+        pdo_execute($sql);
+    }
