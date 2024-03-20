@@ -88,11 +88,21 @@
                                  <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
                                  <div class="password-field position-relative">
                                     <input name="pass" type="password" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
-                                    <span><i class="bi bi-eye-slash passwordToggler"></i></span>
                                     <div class="invalid-feedback">Please enter password.</div>
                                  </div>
                               </div>
                            </div>
+                           <div class="col-12">
+                              <div class="password-field position-relative">
+                                 <label for="formSignupPassword" class="form-label visually-hidden">Password</label>
+                                 <div class="password-field position-relative">
+                                    <input name="repass" type="password" class="form-control fakePassword" id="formSignupPassword" placeholder="*****" required />
+                                    <div class="invalid-feedback">Please enter password.</div>
+                                 </div>
+                              </div>
+                           </div>
+                           <?= (isset($mess) && ($mess != "")) ? $mess : "" ?>
+
                            <!-- btn -->
                            <div class="col-12 d-grid"><button name="submit" type="submit" class="btn btn-primary">Register</button></div>
 

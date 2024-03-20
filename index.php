@@ -59,6 +59,9 @@
                 break;
 
             case 'checkout':
+                if(isset($_SESSION['user'])) {
+                    $user = loadone_user($_SESSION['user']['id']);
+                }
                 include_once 'views/order/checkout.php';
                 break;
 
@@ -105,8 +108,13 @@
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
                     $email = $_POST['email'];
-                    insert_user($user, $pass, $email, 1);
-                    header('Location: index.php?act=signin');
+                    $repass = $_POST['repass'];
+                    if($pass == $repass) {
+                        insert_user($user, $pass, $email, 1);
+                        echo '<script>alert("Đăng ký thành công !")</script>';
+                    } else {
+                        $mess = "<span class='text-danger'>Nhập lại mật khẩu không chính xác !</span>";
+                    };
                 }
                 include_once 'views/login/signup.php';
                 break;

@@ -85,7 +85,7 @@
                                         <!-- input -->
                                         <div class="input-group input-spinner">
                                             <input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity" onclick="updateQuantity(<?= $id ?>, '-')">
-                                            <input type="number" step="1" max="10" value="<?= $quantity ?>" name="quantity" id="quantity_<?= $id ?>" class="quantity-field form-control-sm form-input">
+                                            <input type="number" readonly step="1" max="10" value="<?= $quantity ?>" name="quantity" id="quantity_<?= $id ?>" class="quantity-field form-control-sm form-input" style="cursor: default">
                                             <input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity" onclick="updateQuantity(<?= $id ?>, '+')">
                                         </div>
                                     </div>

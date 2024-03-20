@@ -19,6 +19,12 @@ function logout() {
     }
 }
 
+function loadone_user($id) {
+    $sql = "SELECT * FROM `user` WHERE id= $id";
+    $user = pdo_query_one($sql);
+    return $user;
+}
+
 function insert_user($user, $pass, $email, $role) {
     $sql = "INSERT INTO `user`(`user`, `pass`, `email`, `role`) VALUES ('$user', '$pass', '$email', $role)";
     pdo_execute($sql);
