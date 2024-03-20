@@ -62,11 +62,11 @@
                                             <div class="row g-3">
                                                 <!-- col -->
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" name="name" placeholder="Name" aria-label="First name" required />
+                                                    <input type="text" class="form-control" name="name" placeholder="Name" aria-label="First name" value="<?= (isset($user) ? $user['user'] : "") ?>" required />
                                                 </div>
                                                 <!-- col -->
                                                 <div class="col-12">
-                                                    <input type="text" class="form-control" name="email" placeholder="Email" required />
+                                                    <input type="email" class="form-control" name="email" placeholder="Email" value="<?= (isset($user) ? $user['email'] : "") ?>" required />
                                                 </div>
                                                 <!-- col -->
                                                 <div class="col-12">
