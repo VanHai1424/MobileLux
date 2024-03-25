@@ -27,7 +27,7 @@
                     $id = 0;
                 }
                 $listProduct = loadall_product($keyw, $id);
-                include 'views/order/categories.php';
+                include_once 'views/order/categories.php';
                 break;
 
             case 'product_detail':
@@ -50,7 +50,7 @@
                     $product = loadone_product($idProduct);
                     $productRelated = loadall_product_related($idProduct, $product['id_category']);
                     $productReviews = loadall_review($idProduct);
-                    include 'views/order/product_detail.php';
+                    include_once 'views/order/product_detail.php';
                 }
                 break;    
 
@@ -121,7 +121,7 @@
               
             case 'logout':
                 logout();    
-                include 'views/login/signin.php';
+                include_once 'views/login/signin.php';
                 break;    
 
             case 'forgot_pass':
@@ -129,7 +129,7 @@
                     $email = $_POST['email'];
                     $sendMailMess = send_mail($email);
                 }
-                include 'views/login/forgot_pass.php';
+                include_once 'views/login/forgot_pass.php';
                 break;
         }
     } else {
