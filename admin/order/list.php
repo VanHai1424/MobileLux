@@ -64,85 +64,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($listOrder as $key => $value) {
+                                            extract($value);
+                                        ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>User 1</td>
-                                            <td>0123456789</td>
-                                            <td>Address</td>
-                                            <td>1</td>
-                                            <td>$182</td>
-                                            <td>12/03/2024</td>
-                                            <td>1</td>
+                                            <td><?= $key + 1 ?></td>
+                                            <td><?= $value['name'] ?></td>
+                                            <td><?= $value['phone'] ?></td>
+                                            <td><?= $value['address'] ?></td>
+                                            <td><?= $value['pay_method'] ?></td>
+                                            <td><?= number_format($value['total'], 0, '.', '.') ?></td>
+                                            <td><?= $value['date'] ?></td>
+                                            <td><?= $value['id_user'] ?></td>
                                             <td>
-                                                <a href="?act=orders_detail" class="text-reset" aria-expanded="false">
+                                                <a href="?act=orders_detail&id=<?= $value['id'] ?>" class="text-reset" aria-expanded="false">
                                                     <i class="bi bi-info-circle"></i>
                                                 </a>
                                             </td>
                                         </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td>User 2</td>
-                                            <td>0223456789</td>
-                                            <td>Address</td>
-                                            <td>2</td>
-                                            <td>$282</td>
-                                            <td>22/03/2024</td>
-                                            <td>2</td>
-                                            <td>
-                                                <a href="?act=orders_detail" class="text-reset" aria-expanded="false">
-                                                    <i class="bi bi-info-circle"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>3</td>
-                                            <td>User 3</td>
-                                            <td>0323456789</td>
-                                            <td>Address</td>
-                                            <td>1</td>
-                                            <td>$382</td>
-                                            <td>3/03/2024</td>
-                                            <td>3</td>
-                                            <td>
-                                                <a href="?act=orders_detail" class="text-reset" aria-expanded="false">
-                                                    <i class="bi bi-info-circle"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>4</td>
-                                            <td>User 4</td>
-                                            <td>0423456789</td>
-                                            <td>Address</td>
-                                            <td>1</td>
-                                            <td>$482</td>
-                                            <td>4/03/2024</td>
-                                            <td>4</td>
-                                            <td>
-                                                <a href="?act=orders_detail" class="text-reset" aria-expanded="false">
-                                                    <i class="bi bi-info-circle"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>5</td>
-                                            <td>User 5</td>
-                                            <td>0123456789</td>
-                                            <td>Address</td>
-                                            <td>1</td>
-                                            <td>$182</td>
-                                            <td>12/03/2024</td>
-                                            <td>5</td>
-                                            <td>
-                                                <a href="?act=orders_detail" class="text-reset" aria-expanded="false">
-                                                    <i class="bi bi-info-circle"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

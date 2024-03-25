@@ -1,6 +1,7 @@
 <?php 
-    include_once 'header.php';       
-
+    include_once 'header.php'; 
+    include_once '../models/pdo.php';     
+    include_once '../models/order.php';
     if(isset($_GET['act']) && ($_GET['act'] != '')) {
         $act = $_GET['act'];
         switch($act) {
@@ -32,10 +33,14 @@
     
             // Orders    
             case 'list_order':
+                $listOrder = loadall_order();
                 include_once 'order/list.php';
                 break;
   
             case 'orders_detail':
+                if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+                    $listOrderDetail = load_orderDetail($_GET['id']);
+                }
                 include_once 'order/order_detail.php';
                 break;
 

@@ -35,8 +35,8 @@
                         <div class="card-body p-6">
                             <div class="d-md-flex justify-content-between">
                                 <div class="d-flex align-items-center mb-2 mb-md-0">
-                                    <h2 class="mb-0">Order Name: User</h2>
-
+                                    <h2 class="mb-0">Order Name: <?= $listOrderDetail[0]['order_name'] ?></h2>
+                                    
                                 </div>
                             </div>
                             <div class="mt-8">
@@ -46,26 +46,30 @@
                                         <div class="mb-6">
                                             <h6>Customer Details</h6>
                                             <p class="mb-1 lh-lg">
-                                                Name <br>
-                                                Abc@gmail.com <br>
-                                                0124525252 <br>
-                                                adrress </p>
+                                                <?= $listOrderDetail[0]['order_name'] ?>
+                                                <br />
+                                                <?= $listOrderDetail[0]['user_email'] ?>
+                                                <br />
+                                                <?= $listOrderDetail[0]['order_phone'] ?>
+                                                <br />
+                                                <?= $listOrderDetail[0]['order_address'] ?>
+                                            </p>
                                         </div>
                                     </div>
-
+                                    
                                     <!-- Order Details -->
                                     <div class="col-lg-4 col-md-4 col-12">
                                         <div class="mb-6">
                                             <h6>Order Details</h6>
                                             <p class="mb-1 lh-lg">
                                                 Order ID:
-                                                <span class="text-dark">52</span>
-                                                <br>
+                                                <span class="text-dark"><?= $listOrderDetail[0]['order_id'] ?></span>
+                                                <br />
                                                 Order Date:
-                                                <span class="text-dark">12/03/2024</span>
-                                                <br>
+                                                <span class="text-dark"><?= date('d/m/Y', strtotime($listOrderDetail[0]['order_date'])) ?></span>
+                                                <br />
                                                 Order Total:
-                                                <span class="text-dark">$300</span>
+                                                <span class="text-dark"><?= number_format($listOrderDetail[0]['order_total'], 0, '.', '.') ?></span>
                                             </p>
                                         </div>
                                     </div>
@@ -88,24 +92,21 @@
                                         </thead>
                                         <!-- tbody -->
                                         <tbody>
+                                            <?php 
+                                                foreach ($listOrderDetail as $value) {
+                                                    extract($value);    
+                                            ?>
                                             <tr>
-                                                <td>Product 1</td>
+                                                <td><?= $product_name ?></td>
                                                 <td>
-                                                    <img src="../assets/images/products/product-img-1.jpg" alt="" class="icon-shape icon-lg">
+                                                    <img src="../upload/<?= $product_img ?>" alt="" class="icon-shape icon-lg" />
                                                 </td>
-                                                <td>1</td>
-                                                <td><span class="text-body">$152</span></td>
+                                                <td><?= $cart_quantity ?></td>
+                                                <td><span class="text-body"><?= number_format($cart_price, 0, '.', '.') ?></span></td>
                                             </tr>
-                                            <tr>
-                                                <td>Product 2</td>
-                                                <td>
-                                                    <img src="../assets/images/products/product-img-2.jpg" alt="" class="icon-shape icon-lg">
-                                                </td>
-                                                <td>1</td>
-                                                <td><span class="text-body">$182</span></td>
-                                            </tr>
-
-
+                                            <?php 
+                                                }
+                                            ?>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
@@ -115,7 +116,7 @@
                                                 </td>
                                                 <td class="fw-semibold text-danger">
                                                     <!-- text -->
-                                                    $300
+                                                    <?= number_format($listOrderDetail[0]['order_total'], 0, '.', '.') ?> <u>đ</u>
                                                 </td>
                                             </tr>
                                         </tbody>
