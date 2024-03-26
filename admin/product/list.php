@@ -73,235 +73,54 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="productOne">
-                                                    <label class="form-check-label" for="productOne"></label>
-                                                </div>
-                                            </td>
-                                            <td>1</td>
-                                            <td><a href="#" class="text-reset">Product 1</a></td>
 
-                                            <td>
-                                                <a href="#!"><img src="../assets/images/products/product-img-1.jpg" alt="" class="icon-shape icon-md"></a>
-                                            </td>
-                                            <td>$182</td>
-                                            <td>12</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_product">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="productOne">
-                                                    <label class="form-check-label" for="productOne"></label>
-                                                </div>
-                                            </td>
-                                            <td>2</td>
-                                            <td><a href="#" class="text-reset">Product 2</a></td>
+                                        <?php foreach ($dataProducts as $key => $value) : ?>
+                                            <?php
 
-                                            <td>
-                                                <a href="#!"><img src="../assets/images/products/product-img-2.jpg" alt="" class="icon-shape icon-md"></a>
-                                            </td>
-                                            <td>$182</td>
-                                            <td>12</td>
-                                            <td>2</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_product">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="productOne">
-                                                    <label class="form-check-label" for="productOne"></label>
-                                                </div>
-                                            </td>
-                                            <td>3</td>
-                                            <td><a href="#" class="text-reset">Product 3</a></td>
+                                            // echo "<pre>";
+                                            // print_r($value);
+                                            // echo "</pre>";
 
-                                            <td>
-                                                <a href="#!"><img src="../assets/images/products/product-img-3.jpg" alt="" class="icon-shape icon-md"></a>
-                                            </td>
-                                            <td>$182</td>
-                                            <td>12</td>
-                                            <td>3</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_product">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="productOne">
-                                                    <label class="form-check-label" for="productOne"></label>
-                                                </div>
-                                            </td>
-                                            <td>4</td>
-                                            <td><a href="#" class="text-reset">Product 4</a></td>
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="productOne">
+                                                        <label class="form-check-label" for="productOne"></label>
+                                                    </div>
+                                                </td>
+                                                <td><?= $value['p_id'] ?></td>
+                                                <td><a href="#" class="text-reset"><?= $value['p_name'] ?></a></td>
 
-                                            <td>
-                                                <a href="#!"><img src="../assets/images/products/product-img-4.jpg" alt="" class="icon-shape icon-md"></a>
-                                            </td>
-                                            <td>$482</td>
-                                            <td>42</td>
-                                            <td>4</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_product">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="productOne">
-                                                    <label class="form-check-label" for="productOne"></label>
-                                                </div>
-                                            </td>
-                                            <td>5</td>
-                                            <td><a href="#" class="text-reset">Product 5</a></td>
-
-                                            <td>
-                                                <a href="#!"><img src="../assets/images/products/product-img-5.jpg" alt="" class="icon-shape icon-md"></a>
-                                            </td>
-                                            <td>$52</td>
-                                            <td>5</td>
-                                            <td>5</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_product">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="productOne">
-                                                    <label class="form-check-label" for="productOne"></label>
-                                                </div>
-                                            </td>
-                                            <td>6</td>
-                                            <td><a href="#" class="text-reset">Product 6</a></td>
-
-                                            <td>
-                                                <a href="#!"><img src="../assets/images/products/product-img-6.jpg" alt="" class="icon-shape icon-md"></a>
-                                            </td>
-                                            <td>$182</td>
-                                            <td>12</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_product">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-
+                                                <td>
+                                                    <a href="#!"><img src="../upload/<?= $value['p_image'] ?>" alt="" class="icon-shape icon-md"></a>
+                                                </td>
+                                                <td><?= number_format($value['p_price'], 0, '.', '.') ?>đ</td>
+                                                <td>12</td>
+                                                <td><?= $value['c_name'] ?></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="feather-icon icon-more-vertical fs-5"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a class="dropdown-item" href="/MobileLux/admin/?act=delete_product&id=<?= $value['p_id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa product <?= $value['p_id'] ?> ?')">
+                                                                    <i class="bi bi-trash me-3"></i>
+                                                                    Delete
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="/MobileLux/admin/?act=edit_product&id=<?= $value['p_id'] ?>">
+                                                                    <i class="bi bi-pencil-square me-3"></i>
+                                                                    Edit
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach  ?>
                                     </tbody>
                                 </table>
                             </div>

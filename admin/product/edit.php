@@ -1,7 +1,7 @@
 <div class="main-wrapper">
    <!-- navbar vertical -->
    <?php include_once 'box_left.php' ?>
-   
+
    <!-- main -->
    <main class="main-content-wrapper">
       <!-- container -->
@@ -38,65 +38,73 @@
                   <div class="card-body p-6">
                      <h4 class="mb-4 h5 mt-5">Product Information</h4>
 
-                     <div class="row">
-                        <!-- input -->
-                        <div class="mb-3 col-lg-6">
-                           <label class="form-label">ID</label>
-                           <input type="text" class="form-control" placeholder="ID" required="" disabled="">
-                        </div>
-                        <!-- input -->
-                        <div class="mb-3 col-lg-6">
-                           <label class="form-label">Name</label>
-                           <input type="text" name="name" class="form-control" placeholder="Product Name" required="">
-                        </div>
-                        <!-- input -->
-                        <div class="mb-3 col-lg-6">
-                           <label class="form-label">Quantity</label>
-                           <input type="text" name="quantity" class="form-control" placeholder="Quantity" required="">
-                        </div>
-                        <!-- input -->
-                        <div class="mb-3 col-lg-6">
-                           <label class="form-label">Price</label>
-                           <input type="text" name="price" class="form-control" placeholder="Price" required="">
-                        </div>
-                        <!-- input -->
-                        <div class="mb-3 col-lg-6">
-                           <label class="form-label">Category</label>
-                           <select class="form-select" name="id_category">
-                              <option>Category</option>
-                              <option value="12">Fruits</option>
-                              <option value="13">Vegetables</option>
-                              <option value="14">Juices</option>
-                              <option value="15">Tea</option>
-                              <option value="16">Bread</option>
-                              <option value="17">Meats</option>
-                              <option value="18">Coffee</option>
-                              <option value="19">Noodles</option>
-                           </select>
-                        </div>
-                        <div>
-                           <div class="mb-3 col-lg-12 mt-5">
-                              <!-- heading -->
-                              <h4 class="mb-3 h5">Product Images</h4>
+                     <form action="" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                           <!-- input -->
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">ID</label>
+                              <input type="text" class="form-control" placeholder="<?= $product['p_id'] ?>" disabled="" value="<?= $product['p_id'] ?>" name="id">
+                           </div>
+                           <!-- input -->
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">Name</label>
+                              <input type="text" name="name" class="form-control <?= !empty($_SESSION['errors']['name']) ? 'is-invalid' : '' ?>" placeholder="Product Name" value="<?= $product['p_name'] ?>">
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['name']) ? $_SESSION['errors']['name'] : '' ?>
+                              </div>
+                           </div>
+                           <!-- input -->
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">Quantity</label>
+                              <input type="text" name="quantity" class="form-control <?= !empty($_SESSION['errors']['qty']) ? 'is-invalid' : '' ?>" placeholder="Quantity">
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['qty']) ? $_SESSION['errors']['qty'] : '' ?>
+                              </div>
+                           </div>
+                           <!-- input -->
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">Price</label>
+                              <input type="text" name="price" class="form-control <?= !empty($_SESSION['errors']['price']) ? 'is-invalid' : '' ?>" placeholder="Price" required="" value="<?= number_format($product['p_price'], 0, '.', '.') ?>">
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['price']) ? $_SESSION['errors']['price'] : '' ?>
+                              </div>
+                           </div>
+                           <!-- input -->
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">Category</label>
+                              <select class="form-select" name="id_category">
+                                 <option value="<?= $product['c_id'] ?>" disabled selected><?= $product['c_name'] ?></option>
+                                 <?php foreach ($dataCategory as $key => $value) :  ?>
+                                    <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                                 <?php endforeach  ?>
+                              </select>
+                           </div>
+                           <div>
+                              <div class="mb-3 col-lg-12 mt-5">
+                                 <!-- heading -->
+                                 <h4 class="mb-3 h5">Product Images</h4>
 
-                              <!-- input -->
-                              <input type="file" name="image" id="">
+                                 <!-- input -->
+                                 <input type="file" name="image" id="">
+                              </div>
+                           </div>
+                           <!-- input -->
+                           <div class="mb-3 col-lg-12 mt-5">
+                              <h4 class="mb-3 h5">Product Descriptions</h4>
+                              <textarea name="desc" id="" cols="93" rows="6" class="form-control <?= !empty($_SESSION['errors']['desc']) ? 'is-invalid' : '' ?>"><?= $product['p_desc'] ?></textarea>
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['desc']) ? $_SESSION['errors']['desc'] : '' ?>
+                              </div>
+                           </div>
+
+                           <!-- button -->
+                           <div class="col-lg-12">
+                              <button type="submit" name="submit" class="btn btn-primary">
+                                 Update Product
+                              </button>
                            </div>
                         </div>
-                        <!-- input -->
-                        <div class="mb-3 col-lg-12 mt-5">
-                           <h4 class="mb-3 h5">Product Descriptions</h4>
-                           <textarea name="desc" id="" cols="93" rows="6" class="form-control"></textarea>
-
-                        </div>
-
-                        <!-- button -->
-                        <div class="col-lg-12">
-                           <button type="submit" name="submit" class="btn btn-primary">
-                              Update Product
-                           </button>
-                        </div>
-                     </div>
+                     </form>
                   </div>
                </div>
             </div>

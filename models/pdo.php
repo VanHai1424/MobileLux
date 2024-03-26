@@ -1,6 +1,7 @@
 <?php
 // Kết nối db
-function pdo_get_connection(){
+function pdo_get_connection()
+{
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -8,83 +9,93 @@ function pdo_get_connection(){
         $conn = new PDO("mysql:host=$servername;dbname=db_mobilelux", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conn;
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }
 }
 
 // Thực thi sql
-function pdo_execute($sql){
-    $sql_args=array_slice(func_get_args(),1);
-    try{
-        $conn=pdo_get_connection();
-        $stmt=$conn->prepare($sql);
+function pdo_execute($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
-
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         throw $e;
-    }
-    finally{
+    } finally {
         unset($conn);
     }
 }
 
 // Lấy id của dữ liệu vừa insert
-function pdo_executeid($sql){
-    $sql_args=array_slice(func_get_args(),1);
-    try{
-        $conn=pdo_get_connection();
-        $stmt=$conn->prepare($sql);
+function pdo_executeid($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
         $lastInsertId = $conn->lastInsertId();
 
         return $lastInsertId;
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         throw $e;
-    }
-    finally{
+    } finally {
         unset($conn);
     }
 }
 
 // Truy vấn nhiều dữ liệu
-function pdo_query($sql){
-    $sql_args=array_slice(func_get_args(),1);
+function pdo_query($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
 
-    try{
-        $conn=pdo_get_connection();
-        $stmt=$conn->prepare($sql);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
-        $rows=$stmt->fetchAll();
+        $rows = $stmt->fetchAll();
         return $rows;
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         throw $e;
-    }
-    finally{
+    } finally {
         unset($conn);
     }
 }
 
 // Truy vấn  1 dữ liệu
-function pdo_query_one($sql){
-    $sql_args=array_slice(func_get_args(),1);
-    try{
-        $conn=pdo_get_connection();
-        $stmt=$conn->prepare($sql);
+function pdo_query_one($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
         $stmt->execute($sql_args);
-        $row=$stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
         // đọc và hiển thị giá trị trong danh sách trả về
         return $row;
-    }
-    catch(PDOException $e){
+    } catch (PDOException $e) {
         throw $e;
-    }
-    finally{
+    } finally {
         unset($conn);
     }
 }
 
-?>
+
+// delete one product
+
+function pdo_delete_one($sql)
+{
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($sql_args);
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+}

@@ -37,43 +37,51 @@
                         <!-- card body -->
                         <div class="card-body p-6">
                             <h4 class="mb-4 h5 mt-5">User Information</h4>
+                            <form action="" method="post">
+                                <div class="row">
+                                    <!-- input -->
+                                    <div class="mb-3 col-lg-6">
+                                        <label class="form-label">User Name</label>
+                                        <input type="text" name="user" class="form-control <?= !empty($_SESSION['errors']['name']) ? 'is-invalid' : '' ?>" placeholder="User Name">
+                                        <div class="invalid-feedback">
+                                            <?= !empty($_SESSION['errors']['name']) ? $_SESSION['errors']['name'] : '' ?>
+                                        </div>
+                                    </div>
+                                    <!-- input -->
+                                    <div class="mb-3 col-lg-6">
+                                        <label class="form-label">Password</label>
+                                        <input type="text" name="pass" class="form-control <?= !empty($_SESSION['errors']['pass']) ? 'is-invalid' : '' ?>" placeholder="Password">
+                                        <div class="invalid-feedback">
+                                            <?= !empty($_SESSION['errors']['pass']) ? $_SESSION['errors']['pass'] : '' ?>
+                                        </div>
+                                    </div>
+                                    <!-- input -->
+                                    <div class="mb-3 col-lg-6">
+                                        <label class="form-label">Email</label>
+                                        <input type="text" name="email" class="form-control <?= !empty($_SESSION['errors']['email']) ? 'is-invalid' : '' ?>" placeholder="Email">
+                                        <div class="invalid-feedback">
+                                            <?= !empty($_SESSION['errors']['email']) ? $_SESSION['errors']['email'] : '' ?>
+                                        </div>
+                                    </div>
+                                    <!-- input -->
+                                    <div class="mb-3 col-lg-6">
+                                        <label class="form-label">Role</label>
+                                        <select class="form-select <?= !empty($_SESSION['errors']['role']) ? 'is-invalid' : '' ?>" name="role">
+                                            <option value="" selected disabled>Role</option>
+                                            <option value="1">User</option>
+                                            <option value="0">Admin</option>
+                                        </select>
+                                        <div class="invalid-feedback">
+                                            <?= !empty($_SESSION['errors']['role']) ? $_SESSION['errors']['role'] : '' ?>
+                                        </div>
+                                    </div>
 
-                            <div class="row">
-                                <!-- input -->
-                                <div class="mb-3 col-lg-6">
-                                    <label class="form-label">ID</label>
-                                    <input type="text" class="form-control" placeholder="ID" required="" disabled="">
+                                    <!-- button -->
+                                    <div class="col-lg-12">
+                                        <button type="submit" name="submit" class="btn btn-primary">Create User</button>
+                                    </div>
                                 </div>
-                                <!-- input -->
-                                <div class="mb-3 col-lg-6">
-                                    <label class="form-label">User Name</label>
-                                    <input type="text" name="user" class="form-control" placeholder="User Name" required="">
-                                </div>
-                                <!-- input -->
-                                <div class="mb-3 col-lg-6">
-                                    <label class="form-label">Password</label>
-                                    <input type="text" name="pass" class="form-control" placeholder="Password" required="">
-                                </div>
-                                <!-- input -->
-                                <div class="mb-3 col-lg-6">
-                                    <label class="form-label">Email</label>
-                                    <input type="text" name="email" class="form-control" placeholder="Email" required="">
-                                </div>
-                                <!-- input -->
-                                <div class="mb-3 col-lg-6">
-                                    <label class="form-label">Role</label>
-                                    <select class="form-select" name="role">
-                                        <option selected="">Role</option>
-                                        <option value="0">Admin</option>
-                                        <option value="1">User</option>
-                                    </select>
-                                </div>
-
-                                <!-- button -->
-                                <div class="col-lg-12">
-                                    <button type="submit" name="submit" class="btn btn-primary">Create User</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

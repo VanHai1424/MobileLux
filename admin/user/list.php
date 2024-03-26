@@ -56,181 +56,51 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="userOne">
-                                                    <label class="form-check-label" for="userOne"></label>
-                                                </div>
-                                            </td>
+                                        <?php foreach ($dataUsers as $key => $value) : ?>
+                                            <?php
 
-                                            <td>1</td>
-                                            <td>User 1</td>
-                                            <td>123</td>
-                                            <td>abc@gmail.com</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_user">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="userOne">
-                                                    <label class="form-check-label" for="userOne"></label>
-                                                </div>
-                                            </td>
+                                            // echo "<pre>";
+                                            // print_r($value);
+                                            // echo "</pre>";
 
-                                            <td>1</td>
-                                            <td>User 1</td>
-                                            <td>123</td>
-                                            <td>abc@gmail.com</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_user">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="userOne">
-                                                    <label class="form-check-label" for="userOne"></label>
-                                                </div>
-                                            </td>
 
-                                            <td>1</td>
-                                            <td>User 1</td>
-                                            <td>123</td>
-                                            <td>abc@gmail.com</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_user">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="userOne">
-                                                    <label class="form-check-label" for="userOne"></label>
-                                                </div>
-                                            </td>
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="userOne">
+                                                        <label class="form-check-label" for="userOne"></label>
+                                                    </div>
+                                                </td>
 
-                                            <td>1</td>
-                                            <td>User 1</td>
-                                            <td>123</td>
-                                            <td>abc@gmail.com</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_user">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="userOne">
-                                                    <label class="form-check-label" for="userOne"></label>
-                                                </div>
-                                            </td>
-
-                                            <td>1</td>
-                                            <td>User 1</td>
-                                            <td>123</td>
-                                            <td>abc@gmail.com</td>
-                                            <td>1</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a class="dropdown-item" href="?act=edit_user">
-                                                                <i class="bi bi-pencil-square me-3"></i>
-                                                                Edit
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                <td><?= $value['id'] ?></td>
+                                                <td><?= $value['user'] ?></td>
+                                                <td><?= $value['pass'] ?></td>
+                                                <td><?= $value['email'] ?></td>
+                                                <td><?= $value['role'] == '0' ? 'Admin' : 'User' ?></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <i class="feather-icon icon-more-vertical fs-5"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a class="dropdown-item" href="?act=delete_user&id=<?= $value['id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa user: <?= $value['user'] ?>')">
+                                                                    <i class="bi bi-trash me-3"></i>
+                                                                    Delete
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="dropdown-item" href="?act=edit_user&id=<?= $value['id'] ?>">
+                                                                    <i class="bi bi-pencil-square me-3"></i>
+                                                                    Edit
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach ?>
                                     </tbody>
                                 </table>
                             </div>
