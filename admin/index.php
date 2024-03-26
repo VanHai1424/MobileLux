@@ -93,6 +93,8 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
                 $name = $_POST['name'];
                 $price = $_POST['price'];
                 $price = str_replace('.', '', $price);
+                $color = $_POST['color'];
+                $memory = $_POST['memory'];
                 $category = $_POST['id_category'] ?? $product['c_id'];
                 $image = $_FILES['image'];
                 $desc = $_POST['desc'];
@@ -132,7 +134,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
                 // echo $imageSaveDB . "</br>";
 
                 if (empty($_SESSION['errors'])) {
-                    updateOneProduct($id, $name, $price, $category, $imageSaveDB, $desc);
+                    updateOneProduct($id, $name, $price, $color, $memory, $category, $imageSaveDB, $desc);
                     header("location: index.php?act=list_product");
                 }
             }

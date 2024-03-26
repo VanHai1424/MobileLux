@@ -53,10 +53,25 @@
                                  <?= !empty($_SESSION['errors']['name']) ? $_SESSION['errors']['name'] : '' ?>
                               </div>
                            </div>
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">Color</label>
+                              <input type="text" name="color" class="form-control <?= !empty($_SESSION['errors']['color']) ? 'is-invalid' : '' ?>" placeholder="Color" value="<?= $product['p_color'] ?>">
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['color']) ? $_SESSION['errors']['color'] : '' ?>
+                              </div>
+                           </div>
+
+                           <div class="mb-3 col-lg-6">
+                              <label class="form-label">Memory</label>
+                              <input type="text" name="memory" class="form-control <?= !empty($_SESSION['errors']['memory']) ? 'is-invalid' : '' ?>" placeholder="Memory" value="<?= $product['p_memory'] ?>">
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['memory']) ? $_SESSION['errors']['memory'] : '' ?>
+                              </div>
+                           </div>
                            <!-- input -->
                            <div class="mb-3 col-lg-6">
                               <label class="form-label">Quantity</label>
-                              <input type="text" name="quantity" class="form-control <?= !empty($_SESSION['errors']['qty']) ? 'is-invalid' : '' ?>" placeholder="Quantity">
+                              <input type="text" name="quantity" class="form-control <?= !empty($_SESSION['errors']['qty']) ? 'is-invalid' : '' ?>" placeholder="Quantity" value="<?= $product['p_quantity'] ?>">
                               <div class="invalid-feedback">
                                  <?= !empty($_SESSION['errors']['qty']) ? $_SESSION['errors']['qty'] : '' ?>
                               </div>

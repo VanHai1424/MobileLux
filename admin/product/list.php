@@ -67,7 +67,7 @@
                                             <th>Proudct Name</th>
                                             <th>Image</th>
                                             <th>Price</th>
-                                            <th>Quantity</th>
+                                            <th>Color</th>
                                             <th>ID Category</th>
                                             <th></th>
                                         </tr>
@@ -89,14 +89,14 @@
                                                         <label class="form-check-label" for="productOne"></label>
                                                     </div>
                                                 </td>
-                                                <td><?= $value['p_id'] ?></td>
+                                                <td><?= $key + 1 ?></td>
                                                 <td><a href="#" class="text-reset"><?= $value['p_name'] ?></a></td>
 
                                                 <td>
                                                     <a href="#!"><img src="../upload/<?= $value['p_image'] ?>" alt="" class="icon-shape icon-md"></a>
                                                 </td>
                                                 <td><?= number_format($value['p_price'], 0, '.', '.') ?>đ</td>
-                                                <td>12</td>
+                                                <td><?= $value['p_color'] ?></td>
                                                 <td><?= $value['c_name'] ?></td>
                                                 <td>
                                                     <div class="dropdown">
