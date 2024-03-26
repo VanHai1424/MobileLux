@@ -18,15 +18,15 @@ function selectAllProducts()
 
 function selectOneProduct($id)
 {
-    $sql = "SELECT p.id as p_id, p.name as p_name, p.image as p_image, p.price as p_price, p.color as p_color, p.memory as p_memory, p.desc as p_desc, c.id as c_id, c.name as c_name FROM product as p INNER JOIN category as c ON p.id_category = c.id WHERE p.id = $id ORDER BY p.id";
+    $sql = "SELECT p.id as p_id, p.name as p_name, p.image as p_image, p.price as p_price, p.color as p_color, p.memory as p_memory, p.quantity as p_quantity , p.desc as p_desc, c.id as c_id, c.name as c_name FROM product as p INNER JOIN category as c ON p.id_category = c.id WHERE p.id = $id ORDER BY p.id";
     $stmt = pdo_query_one($sql);
     return $stmt;
 }
 
-function updateOneProduct($id, $name, $price, $category, $image, $desc)
+function updateOneProduct($id, $name, $price, $color, $memory, $category, $image, $desc)
 {
-    $sql = "UPDATE product SET name = ?, price = ?, id_category = ?, image = ?, `desc` = ? WHERE id = ?";
-    pdo_execute($sql, $name, $price, $category, $image, $desc, $id);
+    $sql = "UPDATE product SET name = ?, price = ?, color = ?, memory = ?, id_category = ?, image = ?, `desc` = ? WHERE id = ?";
+    pdo_execute($sql, $name, $price, $color, $memory, $category, $image, $desc, $id);
 }
 
 function insertOneProduct($name, $price, $color, $memory, $category, $image, $desc)

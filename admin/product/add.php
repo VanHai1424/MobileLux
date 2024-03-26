@@ -75,6 +75,14 @@
                            </div>
                            <!-- input -->
                            <div class="mb-3 col-lg-6">
+                              <label class="form-label">Quantity</label>
+                              <input type="text" name="quantity" class="form-control <?= !empty($_SESSION['errors']['qty']) ? 'is-invalid' : '' ?>" placeholder="Quantity">
+                              <div class="invalid-feedback">
+                                 <?= !empty($_SESSION['errors']['qty']) ? $_SESSION['errors']['qty'] : '' ?>
+                              </div>
+                           </div>
+                           <!-- input -->
+                           <div class="mb-3 col-lg-6">
                               <label class="form-label">Category</label>
                               <select class="form-select <?= !empty($_SESSION['errors']['category']) ? 'is-invalid' : '' ?>" name="id_category">
                                  <option value="" disabled selected>Chọn Category</option>
