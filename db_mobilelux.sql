@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th3 26, 2024 lúc 02:15 PM
+-- Thời gian đã tạo: Th3 26, 2024 lúc 02:25 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -89,6 +89,7 @@ CREATE TABLE `order` (
   `pay_method` tinyint(2) NOT NULL COMMENT '1. Thanh toan khi nhan han\r\n2. Thanh toan online',
   `total` int(11) NOT NULL,
   `date` date NOT NULL,
+  `status` tinyint(5) NOT NULL COMMENT '1. Dang duyet\r\n2. Da xac nhan\r\n3. Dang van chuyen\r\n4. Hoan thanh',
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -96,12 +97,12 @@ CREATE TABLE `order` (
 -- Đang đổ dữ liệu cho bảng `order`
 --
 
-INSERT INTO `order` (`id`, `name`, `phone`, `address`, `pay_method`, `total`, `date`, `id_user`) VALUES
-(1, 'Văn Hải', '01213232323', 'adsdasda', 1, 259447000, '2024-03-18', 3),
-(2, 'Văn Hải', '023231314', 'Ha noi\r\n', 1, 23990000, '2024-03-18', 3),
-(3, 'dá', '232', 'dấddd', 1, 30598800, '2024-03-19', 3),
-(4, 'vanhai123', '0121213131', 'adsdasdsdasd', 1, 221880000, '2024-03-20', 3),
-(5, 'vanhai', '232', 'dấdadad', 1, 26490000, '2024-03-26', 2);
+INSERT INTO `order` (`id`, `name`, `phone`, `address`, `pay_method`, `total`, `date`, `status`, `id_user`) VALUES
+(1, 'Văn Hải', '01213232323', 'adsdasda', 1, 259447000, '2024-03-18', 4, 3),
+(2, 'Văn Hải', '023231314', 'Ha noi\r\n', 1, 23990000, '2024-03-18', 4, 3),
+(3, 'dá', '232', 'dấddd', 1, 30598800, '2024-03-19', 4, 3),
+(4, 'vanhai123', '0121213131', 'adsdasdsdasd', 1, 221880000, '2024-03-20', 4, 3),
+(5, 'vanhai', '232', 'dấdadad', 1, 26490000, '2024-03-26', 4, 2);
 
 -- --------------------------------------------------------
 
