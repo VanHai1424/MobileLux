@@ -59,11 +59,6 @@
                                         <?php foreach ($dataUsers as $key => $value) : ?>
                                             <?php
 
-                                            // echo "<pre>";
-                                            // print_r($value);
-                                            // echo "</pre>";
-
-
                                             ?>
                                             <tr>
                                                 <td>
@@ -73,7 +68,7 @@
                                                     </div>
                                                 </td>
 
-                                                <td><?= $value['id'] ?></td>
+                                                <td><?= $key + 1 ?></td>
                                                 <td><?= $value['user'] ?></td>
                                                 <td><?= $value['pass'] ?></td>
                                                 <td><?= $value['email'] ?></td>

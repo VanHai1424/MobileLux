@@ -75,7 +75,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
                 if (empty($_SESSION['errors'])) {
                     $imageSaveDB = upload_file($image, '../upload/');
                     insertOneProduct($name, $price, $color, $memory, $category, $imageSaveDB, $desc);
-                    header('location: /MobileLux/admin/?act=list_product');
+                    header('location: index.php?act=list_product');
                 }
             }
 
@@ -133,7 +133,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
                 if (empty($_SESSION['errors'])) {
                     updateOneProduct($id, $name, $price, $category, $imageSaveDB, $desc);
-                    header("location: /MobileLux/admin/?act=list_product");
+                    header("location: index.php?act=list_product");
                 }
             }
 
@@ -143,7 +143,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
         case 'delete_product':
             $id = $_GET['id'] ?? null;
             deleteOneProduct($id);
-            header('location: /MobileLux/admin/?act=list_product');
+            header('location: index.php?act=list_product');
             break;
 
             // Categories    
@@ -214,7 +214,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
                 if (empty($_SESSION['errors'])) {
                     insert_user($name, $pass, $email, $role);
-                    header('location: /MobileLux/admin/?act=list_user');
+                    header('location: index.php?act=list_user');
                 }
             }
             include_once 'user/add.php';
@@ -260,7 +260,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
                 if (empty($_SESSION['errors'])) {
                     updateOneUser($name, $pass, $email, $role, $id);
-                    header('location: /MobileLux/admin/?act=list_user');
+                    header('location: index.php?act=list_user');
                 }
             }
 
@@ -270,7 +270,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
         case 'delete_user':
             $id = $_GET['id'] ?? null;
             deleteOneUser($id);
-            header('location: /MobileLux/admin/?act=list_user');
+            header('location: index.php?act=list_user');
 
             break;
 

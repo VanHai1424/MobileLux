@@ -30,7 +30,7 @@
                 </div>
             </div>
             <!-- row -->
-            <form action="" method="POST" class="row">
+            <form action="?act=add_user" method="POST" class="row">
                 <div class="col-lg-12 col-12">
                     <!-- card -->
                     <div class="card mb-6 shadow border-0">

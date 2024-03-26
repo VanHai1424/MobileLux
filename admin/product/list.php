@@ -105,13 +105,13 @@
                                                         </a>
                                                         <ul class="dropdown-menu">
                                                             <li>
-                                                                <a class="dropdown-item" href="/MobileLux/admin/?act=delete_product&id=<?= $value['p_id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa product <?= $value['p_id'] ?> ?')">
+                                                                <a class="dropdown-item" href="?act=delete_product&id=<?= $value['p_id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa product <?= $value['p_id'] ?> ?')">
                                                                     <i class="bi bi-trash me-3"></i>
                                                                     Delete
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="dropdown-item" href="/MobileLux/admin/?act=edit_product&id=<?= $value['p_id'] ?>">
+                                                                <a class="dropdown-item" href="?act=edit_product&id=<?= $value['p_id'] ?>">
                                                                     <i class="bi bi-pencil-square me-3"></i>
                                                                     Edit
                                                                 </a>
