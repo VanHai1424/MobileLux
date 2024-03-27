@@ -150,6 +150,7 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
             // Categories    
         case 'list_category':
+            // test
             include_once 'category/list.php';
             break;
 
