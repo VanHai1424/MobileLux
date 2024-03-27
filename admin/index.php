@@ -151,7 +151,8 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
             // Categories    
         case 'list_category':
-            $listCategory = loadall_category();
+            $keyw = $_POST['keyw'] ?? "";
+            $listCategory = loadall_category($keyw);
             include_once 'category/list.php';
             break;
 
@@ -321,7 +322,12 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
             // Reviews    
         case 'list_review':
-            $listReview = loadall_review();
+            $keyw = $_POST['keyw'] ?? "";
+            if(isset($keyw) && $keyw != "") {
+                $listReview = search_review($keyw);
+            } else {
+                $listReview = loadall_review();
+            }
             include_once 'review/list.php';
             break;
 

@@ -6,7 +6,16 @@
         WHERE 1";
         if(isset($id_product) && ($id_product > 0)) {
             $sql .= " AND id_product = $id_product";
-        }
+        } 
+        $listReview = pdo_query($sql);
+        return $listReview;
+    }
+
+    function search_review($keyw) {
+        $sql = "SELECT r.*, u.user AS user_name, p.name AS product_name  FROM `review` r
+        JOIN `user` u ON r.id_user = u.id 
+        JOIN `product` p ON r.id_product = p.id
+        WHERE 1 AND u.user = '$keyw'";
         $listReview = pdo_query($sql);
         return $listReview;
     }
