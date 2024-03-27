@@ -68,7 +68,7 @@ if (is_array($product)) {
                             <!-- input -->
                             <div class="input-group input-spinner">
                                 <input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity" />
-                                <input type="number" min="1" step="1" max="10" value="1" name="quantity" class="quantity-field form-control-sm form-input" />
+                                <input type="number" min="1" step="1" max="<?= $quantity ?>" value="1" name="quantity" class="quantity-field form-control-sm form-input" />
                                 <input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity" />
                             </div>
                         </div>
@@ -81,7 +81,7 @@ if (is_array($product)) {
                             <div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
                                 <!-- button -->
                                 <!-- btn -->
-                                <button data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, document.querySelector('input[name=\'quantity\']').value);" type="button" class="btn btn-primary">
+                                <button data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, <?= $quantity ?>, document.querySelector('input[name=\'quantity\']').value);" type="button" class="btn btn-primary">
                                     <i class="feather-icon icon-shopping-bag me-2"></i>
                                     Add to cart
                                 </button>
@@ -372,7 +372,7 @@ if (is_array($product)) {
                                     <div>
                                         <span class="text-danger"><?= number_format($value['price'], 0, '.', '.') ?> <u>đ</u></span>
                                     </div>
-                                    <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, 1);">
+                                    <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, <?= $quantity ?>, 1);">
                                         <a href="#!" class="btn btn-primary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -394,10 +394,17 @@ if (is_array($product)) {
 </main>
 
 <script>
+    var inputE = document.querySelector('input[name="quantity"]');
+    inputE.addEventListener('blur', function() {
+        var inputMax = parseInt(inputE.getAttribute('max'));
+        if(inputE.value < 0) inputE.value = 1;
+        else if(inputE.value > inputMax) inputE.value = inputMax;
+    })
+
     // Add To Cart
     var totalProduct = document.querySelector('#totalProduct');
 
-    function addToCart(id, name, img, price, quantity) {
+    function addToCart(id, name, img, price, totalQty, quantity) {
         $.ajax({
             type: 'POST',
             url: './views/order/add_to_cart.php',
@@ -406,6 +413,7 @@ if (is_array($product)) {
                 name: name,
                 img: img,
                 price: price,
+                totalQty: totalQty,
                 quantity: quantity,
             },
 

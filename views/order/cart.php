@@ -85,7 +85,7 @@
                                         <!-- input -->
                                         <div class="input-group input-spinner">
                                             <input type="button" value="-" class="button-minus btn btn-sm" data-field="quantity" onclick="updateQuantity(<?= $id ?>, '-')">
-                                            <input type="number" readonly step="1" max="10" value="<?= $quantity ?>" name="quantity" id="quantity_<?= $id ?>" class="quantity-field form-control-sm form-input" style="cursor: default">
+                                            <input type="number" readonly min="1" step="1" max="<?= $totalQty ?>" value="<?= $quantity ?>" name="quantity" id="quantity_<?= $id ?>" class="quantity-field form-control-sm form-input" style="cursor: default">
                                             <input type="button" value="+" class="button-plus btn btn-sm" data-field="quantity" onclick="updateQuantity(<?= $id ?>, '+')">
                                         </div>
                                     </div>
@@ -187,8 +187,22 @@
 <script>
     function updateQuantity(idProduct, str) {
         let quantity = Number(document.querySelector('#quantity_' + idProduct).value);
-        let newQuantity = (str === '+') ? (quantity + 1) : ((quantity - 1 > 0) ? (quantity - 1) : 1);
-        console.log(newQuantity);
+        let maxQuantity = Number(document.querySelector('#quantity_' + idProduct).getAttribute('max'));
+        let newQuantity;
+        if (str === '+') {
+            if (quantity + 1 > maxQuantity) {
+                newQuantity = maxQuantity; 
+            } else {
+                newQuantity = quantity + 1;
+            }
+        } else {
+            if (quantity - 1 > 0) {
+                newQuantity = quantity - 1;
+            } else {
+                newQuantity = 1; 
+            }
+        }
+
         $.ajax({
             type: 'POST',
             url: './views/order/update_quantity.php',

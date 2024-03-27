@@ -73,7 +73,7 @@
                                     <div>
                                         <span class="text-danger"><?= number_format($value['price'], 0, '.', '.') ?> <u>đ</u></span>
                                     </div>
-                                    <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>);">
+                                    <div data-id="<?= $id ?>" onclick="addToCart(<?= $id ?>, '<?= $name ?>', '<?= $image ?>', <?= $price ?>, <?= $quantity ?>);">
                                         <a href="#!" class="btn btn-primary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                 <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -136,7 +136,7 @@
     // Add To Cart
     var totalProduct = document.querySelector('#totalProduct');
 
-    function addToCart(id, name, img, price) {
+    function addToCart(id, name, img, price, totalQty) {
         $.ajax({
             type: 'POST',
             url: './views/order/add_to_cart.php',
@@ -145,6 +145,7 @@
                 name: name,
                 img: img,
                 price: price,
+                totalQty: totalQty,
                 quantity: 1,
             },
 

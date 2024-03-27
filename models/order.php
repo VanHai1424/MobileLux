@@ -13,10 +13,15 @@ function addCart($quantity, $price, $idProduct, $idOrder){
     pdo_execute($sql);
 }
 
-function loadall_order() {
-    $sql = "SELECT * FROM `order` WHERE 1 ORDER BY `id` DESC";
+function loadall_order($keyw) {
+    $sql = "SELECT * FROM `order` WHERE 1";
+    if(isset($keyw) && $keyw != "") {
+        $sql.= " AND name = '$keyw'";
+    }
+    $sql.=" ORDER BY `id` DESC";
     $listOrder = pdo_query($sql);
     return $listOrder;
+
 }
 
 function load_orderDetail($id){
@@ -28,12 +33,14 @@ function load_orderDetail($id){
                 ord.pay_method AS order_pay_method,
                 ord.total AS order_total,
                 ord.date AS order_date,
+                ord.status AS order_status,
                 user.user AS user_name,
                 user.email AS user_email,
                 cart.quantity AS cart_quantity,
                 cart.price AS cart_price,
                 product.name AS product_name,
-                product.image AS product_img
+                product.image AS product_img,
+                product.price AS product_price
             FROM 
                 `order` AS ord
             JOIN 
@@ -48,4 +55,10 @@ function load_orderDetail($id){
             
     $orderDetail = pdo_query($sql);
     return $orderDetail;
+}
+
+function updateStatus($id, $status) {
+    $sql = "UPDATE `order` SET `status`= $status WHERE id = $id";
+    pdo_execute($sql);
+
 }

@@ -197,7 +197,8 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
             // Orders    
         case 'list_order':
-            $listOrder = loadall_order();
+            $keyw = $_POST['keyw'] ?? "";
+            $listOrder = loadall_order($keyw);
             include_once 'order/list.php';
             break;
 
@@ -206,6 +207,15 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
                 $listOrderDetail = load_orderDetail($_GET['id']);
             }
             include_once 'order/order_detail.php';
+            break;
+
+        case 'update_status':
+            if(isset($_POST['submit'])) {
+                $id = $_POST['id'];
+                $status = $_POST['status'];
+                updateStatus($id, $status);
+                header("Location: index.php?act=orders_detail&id=$id");
+            }
             break;
 
             // Users    
