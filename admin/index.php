@@ -5,6 +5,7 @@ include_once '../models/pdo.php';
 include_once '../models/order.php';
 include_once '../models/product.php';
 include_once '../models/category.php';
+include_once '../models/review.php';
 include_once '../models/user.php';
 // hepler
 include_once '../helper.php';
@@ -150,17 +151,49 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
 
             // Categories    
         case 'list_category':
-            // test
+            $listCategory = loadall_category();
             include_once 'category/list.php';
             break;
 
         case 'add_category':
+            if(isset($_POST['submit'])) {
+                $name = $_POST['name'];
+                $image = $_FILES['image'];
+                $imageSaveDB = upload_file($image, '../upload/');
+                insert_category($name, $imageSaveDB);
+                header('location: index.php?act=list_category');
+                $thongBao = "Thêm danh mục thành công";
+            }
             include_once 'category/add.php';
             break;
 
         case 'edit_category':
+            if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+                $category = loadone_category($_GET['id']);
+            }
             include_once 'category/edit.php';
             break;
+        
+        case 'update_category':
+            if(isset($_POST['submit'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $image = $_FILES['image'];
+                $imageSaveDB = upload_file($image, '../upload/');
+                update_category($name, $imageSaveDB, $id);
+            }
+            $listCategory = loadall_category();
+            include_once 'category/list.php';
+            break;   
+            
+        case 'delete_category':
+            if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_category($_GET['id']);
+            }
+
+            $listCategory = loadall_category();
+            include_once 'category/list.php';
+            break;        
 
             // Orders    
         case 'list_order':
@@ -274,13 +307,21 @@ if (isset($_GET['act']) && ($_GET['act'] != '')) {
             $id = $_GET['id'] ?? null;
             deleteOneUser($id);
             header('location: index.php?act=list_user');
-
             break;
 
             // Reviews    
         case 'list_review':
+            $listReview = loadall_review();
             include_once 'review/list.php';
             break;
+
+        case 'delete_review':
+            if(isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_review($_GET['id']);
+            }
+            $listReview = loadall_review();
+            include 'review/list.php';
+            break;    
     }
 } else {
     include_once 'home.php';
