@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <form action="" method="POST" class="row" enctype="multipart/form-data">
+            <form action="?act=update_category" method="POST" class="row" enctype="multipart/form-data">
                 <div class="col-lg-12 col-12">
                     <!-- card -->
                     <div class="card mb-6 shadow border-0">
@@ -40,12 +40,12 @@
                                 <!-- input -->
                                 <div class="mb-3 col-lg-6">
                                     <label class="form-label">ID</label>
-                                    <input type="text" class="form-control" name="id" placeholder="ID" required="" disabled="">
+                                    <input type="text" class="form-control" name="id" placeholder="ID" required disabled >
                                 </div>
                                 <!-- input -->
                                 <div class="mb-3 col-lg-6">
                                     <label class="form-label">Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Category Name" required="">
+                                    <input type="text" name="name" class="form-control" placeholder="Category Name" value="<?= $category['name'] ?>" required>
                                 </div>
                                 <div>
                                     <div class="mb-3 col-lg-12 mt-5">
@@ -56,6 +56,7 @@
                                         <input type="file" name="image" id="">
                                     </div>
                                 </div>
+                                <input type="hidden" name="id" value="<?= $category['id'] ?>">
 
                                 <!-- button -->
                                 <div class="col-lg-12">

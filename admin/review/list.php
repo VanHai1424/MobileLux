@@ -60,14 +60,15 @@
                                                 </div>
                                             </th>
                                             <th>ID</th>
-                                            <th>ID User</th>
-                                            <th>ID Product</th>
+                                            <th>User</th>
+                                            <th>Product</th>
                                             <th>Content</th>
                                             <th>Date</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach($listReview as $key => $value) { ?>
                                         <tr>
                                             <td>
                                                 <div class="form-check">
@@ -76,11 +77,11 @@
                                                 </div>
                                             </td>
 
-                                            <td>8</td>
-                                            <td>8</td>
-                                            <td>28</td>
-                                            <td>Nice</td>
-                                            <td>07/12/2023</td>
+                                            <td><?= $key + 1 ?></td>
+                                            <td><?= $value['user_name'] ?></td>
+                                            <td><?= $value['product_name'] ?></td>
+                                            <td><?= $value['content'] ?></td>
+                                            <td><?= $value['date'] ?></td>
                                             <td>
                                                 <div class="dropdown">
                                                     <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
@@ -88,7 +89,7 @@
                                                     </a>
                                                     <ul class="dropdown-menu">
                                                         <li>
-                                                            <a onclick="" class="dropdown-item" href="">
+                                                            <a class="dropdown-item" href="?act=delete_review&id=<?= $value['id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa ?')">
                                                                 <i class="bi bi-trash me-3"></i>
                                                                 Delete
                                                             </a>
@@ -98,126 +99,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="reviewOne">
-                                                    <label class="form-check-label" for="reviewOne"></label>
-                                                </div>
-                                            </td>
-
-                                            <td>9</td>
-                                            <td>8</td>
-                                            <td>28</td>
-                                            <td>Nice</td>
-                                            <td>07/12/2023</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a onclick="" class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="reviewOne">
-                                                    <label class="form-check-label" for="reviewOne"></label>
-                                                </div>
-                                            </td>
-
-                                            <td>10</td>
-                                            <td>8</td>
-                                            <td>27</td>
-                                            <td>Nice</td>
-                                            <td>07/12/2023</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a onclick="" class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="reviewOne">
-                                                    <label class="form-check-label" for="reviewOne"></label>
-                                                </div>
-                                            </td>
-
-                                            <td>11</td>
-                                            <td>9</td>
-                                            <td>27</td>
-                                            <td>Nice</td>
-                                            <td>07/12/2023</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a onclick="" class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="reviewOne">
-                                                    <label class="form-check-label" for="reviewOne"></label>
-                                                </div>
-                                            </td>
-
-                                            <td>12</td>
-                                            <td>8</td>
-                                            <td>28</td>
-                                            <td>Nice</td>
-                                            <td>07/12/2023</td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="feather-icon icon-more-vertical fs-5"></i>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a onclick="" class="dropdown-item" href="">
-                                                                <i class="bi bi-trash me-3"></i>
-                                                                Delete
-                                                            </a>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

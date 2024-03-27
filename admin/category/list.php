@@ -69,6 +69,7 @@
 										</tr>
 									</thead>
 									<tbody>
+										<?php foreach ($listCategory as $key => $value) { ?>
 										<tr>
 											<td>
 												<div class="form-check">
@@ -76,10 +77,10 @@
 													<label class="form-check-label" for="categoryOne"></label>
 												</div>
 											</td>
-											<td>1</td>
-											<td><a href="#" class="text-reset">Apple</a></td>
+											<td><?= $key + 1 ?></td>
+											<td><a href="#" class="text-reset"><?= $value['name'] ?></a></td>
 											<td>
-												<a href="#!"><img src="../assets/images/category/apple.jpg" alt="" class="icon-shape icon-md object-fit-cover " /></a>
+												<a href="#!"><img src="../upload/<?= $value['image'] ?>" alt="" class="icon-shape icon-md object-fit-contain" /></a>
 											</td>
 											<td>
 												<div class="dropdown">
@@ -88,13 +89,13 @@
 													</a>
 													<ul class="dropdown-menu">
 														<li>
-															<a class="dropdown-item" href="#">
+															<a class="dropdown-item" href="?act=delete_category&id=<?= $value['id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa ?')">
 																<i class="bi bi-trash me-3"></i>
 																Delete
 															</a>
 														</li>
 														<li>
-															<a class="dropdown-item" href="?act=edit_category">
+															<a class="dropdown-item" href="?act=edit_category&id=<?= $value['id'] ?>">
 																<i class="bi bi-pencil-square me-3"></i>
 																Edit
 															</a>
@@ -103,143 +104,7 @@
 												</div>
 											</td>
 										</tr>
-										<tr>
-											<td>
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="categoryOne" />
-													<label class="form-check-label" for="categoryOne"></label>
-												</div>
-											</td>
-											<td>2</td>
-											<td><a href="#" class="text-reset">Samsung</a></td>
-											<td>
-												<a href="#!"><img src="../assets/images/category/samsung.png" alt="" class="icon-shape icon-md object-fit-contain " /></a>
-											</td>
-											<td>
-												<div class="dropdown">
-													<a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-														<i class="feather-icon icon-more-vertical fs-5"></i>
-													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a class="dropdown-item" href="#">
-																<i class="bi bi-trash me-3"></i>
-																Delete
-															</a>
-														</li>
-														<li>
-															<a class="dropdown-item" href="?act=edit_category">
-																<i class="bi bi-pencil-square me-3"></i>
-																Edit
-															</a>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="categoryOne" />
-													<label class="form-check-label" for="categoryOne"></label>
-												</div>
-											</td>
-											<td>3</td>
-											<td><a href="#" class="text-reset">Xiaomi</a></td>
-											<td>
-												<a href="#!"><img src="../assets/images/category/xiaomi.jpg" alt="" class="icon-shape icon-md object-fit-contain " /></a>
-											</td>
-											<td>
-												<div class="dropdown">
-													<a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-														<i class="feather-icon icon-more-vertical fs-5"></i>
-													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a class="dropdown-item" href="#">
-																<i class="bi bi-trash me-3"></i>
-																Delete
-															</a>
-														</li>
-														<li>
-															<a class="dropdown-item" href="?act=edit_category">
-																<i class="bi bi-pencil-square me-3"></i>
-																Edit
-															</a>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="categoryOne" />
-													<label class="form-check-label" for="categoryOne"></label>
-												</div>
-											</td>
-											<td>4</td>
-											<td><a href="#" class="text-reset">Oppo</a></td>
-											<td>
-												<a href="#!"><img src="../assets/images/category/oppo.jpg" alt="" class="icon-shape icon-md object-fit-contain " /></a>
-											</td>
-											<td>
-												<div class="dropdown">
-													<a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-														<i class="feather-icon icon-more-vertical fs-5"></i>
-													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a class="dropdown-item" href="#">
-																<i class="bi bi-trash me-3"></i>
-																Delete
-															</a>
-														</li>
-														<li>
-															<a class="dropdown-item" href="?act=edit_category">
-																<i class="bi bi-pencil-square me-3"></i>
-																Edit
-															</a>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="form-check">
-													<input class="form-check-input" type="checkbox" value="" id="categoryOne" />
-													<label class="form-check-label" for="categoryOne"></label>
-												</div>
-											</td>
-											<td>5</td>
-											<td><a href="#" class="text-reset">Vivo</a></td>
-											<td>
-												<a href="#!"><img src="../assets/images/category/vivo.png" alt="" class="icon-shape icon-md object-fit-contain " /></a>
-											</td>
-											<td>
-												<div class="dropdown">
-													<a href="#" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
-														<i class="feather-icon icon-more-vertical fs-5"></i>
-													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a class="dropdown-item" href="#">
-																<i class="bi bi-trash me-3"></i>
-																Delete
-															</a>
-														</li>
-														<li>
-															<a class="dropdown-item" href="?act=edit_category">
-																<i class="bi bi-pencil-square me-3"></i>
-																Edit
-															</a>
-														</li>
-													</ul>
-												</div>
-											</td>
-										</tr>
-
+										<?php } ?>
 									</tbody>
 								</table>
 							</div>
