@@ -30,8 +30,8 @@
                             <div class="row justify-content-between">
                                 <div class="col-md-4 col-12 mb-2 mb-md-0">
                                     <!-- form -->
-                                    <form class="d-flex" role="search">
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                                    <form action="?act=list_order" method="POST" class="d-flex" role="search">
+                                        <input class="form-control" type="search" name="keyw" placeholder="Search" aria-label="Search" />
                                     </form>
                                 </div>
                                 <div class="col-lg-2 col-md-4 col-12">
@@ -55,11 +55,8 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Phone Number</th>
-                                            <th>Address</th>
                                             <th>Payment Method</th>
                                             <th>Total</th>
-                                            <th>Date</th>
-                                            <th>ID User</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -71,11 +68,8 @@
                                             <td><?= $key + 1 ?></td>
                                             <td><?= $value['name'] ?></td>
                                             <td><?= $value['phone'] ?></td>
-                                            <td><?= $value['address'] ?></td>
-                                            <td><?= $value['pay_method'] ?></td>
+                                            <td><?= $value['pay_method'] == 1 ? "Thanh toán khi nhận hàng" : "Thanh toán online" ?></td>
                                             <td><?= number_format($value['total'], 0, '.', '.') ?></td>
-                                            <td><?= $value['date'] ?></td>
-                                            <td><?= $value['id_user'] ?></td>
                                             <td>
                                                 <a href="?act=orders_detail&id=<?= $value['id'] ?>" class="text-reset" aria-expanded="false">
                                                     <i class="bi bi-info-circle"></i>

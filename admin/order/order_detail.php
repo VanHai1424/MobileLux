@@ -73,6 +73,20 @@
                                             </p>
                                         </div>
                                     </div>
+                                    
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <form action="?act=update_status" method="POST">
+                                            <label for="status">Status</label>
+                                            <select name="status" id="status" class="form-control my-4">
+                                                <option <?= ($listOrderDetail[0]['order_status'] == 1 ? "selected" : "") ?> value="1">Đã duyệt</option>
+                                                <option <?= ($listOrderDetail[0]['order_status'] == 2 ? "selected" : "") ?> value="2">Đã xác nhận</option>
+                                                <option <?= ($listOrderDetail[0]['order_status'] == 3 ? "selected" : "") ?> value="3">Đang vận chuyển</option>
+                                                <option <?= ($listOrderDetail[0]['order_status'] == 4 ? "selected" : "") ?> value="4">Hoàn thành</option>
+                                            </select>
+                                            <input type="hidden" name="id" value="<?= $listOrderDetail[0]['order_id'] ?>">
+                                            <button class="btn btn-primary d-block ms-auto " name="submit" style="width: 100px">Update</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -86,8 +100,9 @@
                                             <tr>
                                                 <th>Product Name</th>
                                                 <th>Image</th>
-                                                <th>Quantity</th>
                                                 <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Total Price</th>
                                             </tr>
                                         </thead>
                                         <!-- tbody -->
@@ -101,6 +116,7 @@
                                                 <td>
                                                     <img src="../upload/<?= $product_img ?>" alt="" class="icon-shape icon-lg" />
                                                 </td>
+                                                <td><?= number_format($product_price, 0, '.', '.') ?></td>
                                                 <td><?= $cart_quantity ?></td>
                                                 <td><span class="text-body"><?= number_format($cart_price, 0, '.', '.') ?></span></td>
                                             </tr>
@@ -108,6 +124,7 @@
                                                 }
                                             ?>
                                             <tr>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td colspan="1" class="fw-semibold text-dark">
