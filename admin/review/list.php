@@ -29,8 +29,8 @@
                             <div class="row justify-content-between">
                                 <div class="col-md-4 col-12 mb-2 mb-md-0">
                                     <!-- form -->
-                                    <form class="d-flex" role="search">
-                                        <input class="form-control" type="search" placeholder="Search Reviews" aria-label="Search" />
+                                    <form action="?act=list_review" method="POST" class="d-flex" role="search">
+                                        <input class="form-control" name="keyw" type="search" placeholder="Search Reviews" aria-label="Search" />
                                     </form>
                                 </div>
                                 <div class="col-lg-2 col-md-4 col-12">

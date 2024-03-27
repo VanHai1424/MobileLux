@@ -12,7 +12,6 @@ function loadall_category($key_word = "")
     return  $listCategory;
 }
 
-
 function selectAllCategory()
 {
     $sql = "SELECT * FROM category";

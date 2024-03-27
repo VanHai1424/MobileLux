@@ -35,8 +35,8 @@
 							<div class="row justify-content-between">
 								<div class="col-lg-4 col-md-6 col-12 mb-2 mb-md-0">
 									<!-- form -->
-									<form class="d-flex" role="search">
-										<input class="form-control" type="search" placeholder="Search Category" aria-label="Search" />
+									<form action="?act=list_category" method="POST" class="d-flex" role="search">
+										<input class="form-control" type="search" name="keyw" placeholder="Search Category" aria-label="Search" />
 									</form>
 								</div>
 								<!-- select option -->
